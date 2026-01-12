@@ -20,12 +20,19 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 # Actual Folder
-SRCS_MAIN = fichier.c\
-	fichier.c\
+SRCS_MAIN = pushswap.c\
+	#fichier.c\
 
 # Libft Folder
-SRCS_LIBFT = fichier.c\
-	fichier.c\
+SRCS_LIBFT = ./libft/ft_lstadd_back.c\
+			 ./libft/ft_lstadd_front.c\
+			 ./libft/ft_lstclear.c\
+			 ./libft/ft_lstdelone.c\
+			 ./libft/ft_lstiter.c\
+			 ./libft/ft_lstlast.c\
+			 ./libft/ft_lstmap.c\
+			 ./libft/ft_lstnew.c\
+			 ./libft/ft_lstsize.c\
 
 # All SRC
 SRCS = $(SRCS_MAIN) $(SRCS_LIBFT)
@@ -37,7 +44,6 @@ NAME = libftprintf.a
 
 # Commands
 all: $(NAME)
-	@echo ""
 	@echo "${GREEN}💫 All compiled 💫${NC}"
 
 $(NAME): $(OBJS)
