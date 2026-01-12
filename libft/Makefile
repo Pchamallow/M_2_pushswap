@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/12 23:16:13 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/13 00:30:25 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ OBJET = ${FILES:.c=.o}
 OBJET_BONUS = ${BONUS_FILES:.c=.o}
 
 %.o : %.c
-	${CC} ${FLAGS} -c $< -o $@
+	@${CC} ${FLAGS} -c $< -o $@
 
 all : ${NAME}
 

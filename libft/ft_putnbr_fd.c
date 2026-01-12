@@ -6,33 +6,52 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 09:16:38 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/11 17:29:21 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:48:46 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
-		return ;
+	int		count;
+	char	c;
+
+	count = 0;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return ;
+		return (11);
 	}
 	if (n < 0)
 	{
 		write(fd, "-", 1);
 		n = n * -1;
+		count++;
 	}
-	if (n >= 0 && n <= 9)
+	if (n / 10)
+		count += ft_putnbr_fd(n / 10, 1);
+	c = n % 10 + '0';
+	write(fd, &c, 1);
+	count++;
+	return (count);
+}
+
+int	ft_putunbr_fd(long int n, int fd)
+{
+	int		count;
+	char	c;
+
+	count = 0;
+	if (n < 0)
 	{
-		n = n + '0';
-		write(fd, &n, 1);
+		n = (UINT_MAX) + n + 1;
+		if (n < 0)
+			n = n * -1;
 	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
+	if (n / 10)
+		count += ft_putnbr_fd(n / 10, 1);
+	c = n % 10 + '0';
+	write(fd, &c, 1);
+	count++;
+	return (count);
 }

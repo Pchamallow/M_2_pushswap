@@ -6,14 +6,15 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:44:42 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/11 17:29:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:07:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	if (fd < 0)
-		return ;
+		return (0);
 	write(fd, &c, 1);
+	return (1);
 }

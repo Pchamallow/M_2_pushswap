@@ -15,9 +15,8 @@ AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror -g
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
-INCLUDES = -Iincludes -Ilibft/includes
+INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
 NAME = push_swap
-LIB = libft/libft.a
 
 
 #Colors
@@ -27,8 +26,15 @@ NC='\033[0m'
 
 # Libft Folder
 DIR_LIBFT= ./libft
+LIB = libft/libft.a
 LDFLAGS = -L$(DIR_LIBFT)
 LDLIBS = -lft
+
+# Printf Folder
+DIR_PRINTF = ./ft_printf
+PRI = ft_printf/libftprintf.a
+LDFLAGSPRI = -L$(DIR_PRINTF)
+LDLIBSPRI = -lft
 
 
 # All SRC
@@ -39,16 +45,18 @@ OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 
 
 
-
 # Commands
-all: $(LIB) $(NAME)
+all: $(LIB) $(PRI) $(NAME)
 	@echo $(GREEN)"💫 All compiled 💫"$(NC)
 
 $(LIB):
 	@$(MAKE) -C $(DIR_LIBFT)
 
-$(NAME): $(BUILD_DIR) $(OBJS) $(LIB)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+$(PRI):
+	@$(MAKE) -C $(DIR_PRINTF)
+
+$(NAME): $(BUILD_DIR) $(OBJS) $(LIB) $(PRI)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(PRI) -o $(NAME)
 	@echo $(GREEN)"✨ $(NAME) created ✨"$(NC)
 
 $(BUILD_DIR):
@@ -60,12 +68,14 @@ $(BUILD_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	@echo make -C $(DIR_LIBFT) clean
+	make -C $(DIR_LIBFT) clean
+	make -C $(DIR_PRINTF) clean
 	@echo rm -rf $(BUILD_DIR)
 	@echo ${GREEN}"Build is clean.. 🧹"${NC}
 
 fclean: clean
 	@$(make) -C $(DIR_LIBFT) fclean
+	@$(make) -C $(DIR_PRINTF) fclean
 	@rm -f $(NAME)
 	@echo ${GREEN}"Pushswap is clean.. 🧹"${NC}
 

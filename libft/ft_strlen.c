@@ -6,12 +6,12 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:13:18 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/09 17:17:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:51:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	long int	i;
 
