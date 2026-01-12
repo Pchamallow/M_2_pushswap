@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/14 13:35:03 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/10/29 13:53:27 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	ft_bzero(void *s, size_t n)
 {
-	t_list	*last;
+	size_t			i;
+	unsigned char	*tmp;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	tmp = (unsigned char *) s;
+	while (i < n)
 	{
-		*head = newer;
-		return ;
+		tmp[i] = '\0';
+		i++;
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	s = tmp;
 }

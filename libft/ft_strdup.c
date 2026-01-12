@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 23:17:54 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/08/25 18:35:18 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/10/28 18:10:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *src)
 {
+	char	*create_tab;
 	int		i;
-	t_list	*first;
-	t_list	**heada;
 
-	(void)argc;
 	i = 0;
-	first = ft_lstnew(0);
-	heada = &first;
-	while (argv[i])
+	create_tab = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (create_tab == NULL)
+		return (NULL);
+	while (src[i] != '\0')
 	{
-		ft_fillstka(heada, *argv[i]);
+		create_tab[i] = src[i];
 		i++;
 	}
-	return (0);
+	create_tab[i] = '\0';
+	return (create_tab);
 }

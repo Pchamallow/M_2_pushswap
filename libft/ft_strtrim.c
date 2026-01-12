@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/29 19:02:57 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/09 17:21:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	t_list	*last;
+	size_t	i;
+	size_t	s;
+	size_t	e;
+	char	*tab;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	s = 0;
+	e = ft_strlen(s1) - 1;
+	if (!s1 || !set || e > 2147483647)
 	{
-		*head = newer;
-		return ;
+		tab = ft_substr("", 0, 1);
+		return (tab);
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	while (s1[s] && ft_strchr(set, s1[s]))
+		s++;
+	while (e > s && ft_strchr(set, s1[e]))
+		e--;
+	tab = ft_substr(s1, s, (e - s + 1));
+	if (tab == NULL)
+		return (NULL);
+	while (s <= e)
+		tab[i++] = s1[s++];
+	return (tab);
 }

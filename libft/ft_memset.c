@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/15 18:46:00 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/10/22 12:15:33 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft.h" 
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_list	*last;
+	size_t			i;
+	unsigned char	*tmp;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	tmp = (unsigned char *)s;
+	while (n > 0)
 	{
-		*head = newer;
-		return ;
+		*tmp = (unsigned char)c;
+		tmp++;
+		n--;
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	return (s);
 }

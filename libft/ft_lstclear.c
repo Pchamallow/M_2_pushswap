@@ -6,19 +6,19 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 08:14:24 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/07 14:25:51 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/12 19:51:53 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **head, void (*del)(void*))
 {
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	if (!lst || !del)
+	if (!head || !del)
 		return ;
-	tmp = *lst;
+	tmp = *head;
 	tmp2 = NULL;
 	while (tmp)
 	{
@@ -27,6 +27,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		tmp = tmp->next;
 		free(tmp2);
 	}
-	*lst = tmp;
+	*head = tmp;
 	return ;
 }

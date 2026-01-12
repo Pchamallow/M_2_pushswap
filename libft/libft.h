@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:50:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/08 19:54:36 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:42:54 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -14,9 +14,10 @@
 
 # include <stdlib.h>
 # include <ctype.h>
+# include "../structures.h"
 
 // Part 1 - Libc functions
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -54,18 +55,12 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // Bonus Part
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
 t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *ne);
+void	ft_lstadd_front(t_list **lst, t_list *newer);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *ne);
+void	ft_lstadd_back(t_list **lst, t_list *newer);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));

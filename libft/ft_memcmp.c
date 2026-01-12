@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/27 12:27:24 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/09 10:13:54 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_list	*last;
+	unsigned long	i;
+	unsigned char	*src1;
+	unsigned char	*src2;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	src1 = (unsigned char *) s1;
+	src2 = (unsigned char *) s2;
+	if (n == 0)
+		return (0);
+	while ((src1[i] == src2[i]) && i < n - 1)
 	{
-		*head = newer;
-		return ;
+		i++;
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	return (src1[i] - src2[i]);
 }

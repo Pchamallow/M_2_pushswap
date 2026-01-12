@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/29 12:55:59 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/07 19:14:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_list	*last;
+	char	*tab;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
-	{
-		*head = newer;
-		return ;
-	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	if ((nmemb * size) > ((size_t)-1))
+		return (NULL);
+	tab = (char *)malloc(sizeof(char) * (nmemb * size));
+	if (tab == NULL)
+		return (NULL);
+	ft_bzero(tab, (nmemb * size));
+	return (tab);
 }

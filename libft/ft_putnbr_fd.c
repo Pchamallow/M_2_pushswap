@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/11/06 09:16:38 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/11 17:29:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list	*last;
-
-	if (!head || !newer)
+	if (fd < 0)
 		return ;
-	if (!*head)
+	if (n == -2147483648)
 	{
-		*head = newer;
+		write(fd, "-2147483648", 11);
 		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = n * -1;
+	}
+	if (n >= 0 && n <= 9)
+	{
+		n = n + '0';
+		write(fd, &n, 1);
 	}
 	else
 	{
-		last = ft_lstlast(*head);
-		last->next = newer;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	return ;
 }

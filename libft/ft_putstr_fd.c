@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/11/06 08:55:13 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/09 17:24:08 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*last;
+	size_t	i;
 
-	if (!head || !newer)
+	i = 0;
+	if (fd < 0 || !s || !fd)
 		return ;
-	if (!*head)
+	while (s[i] != '\0')
 	{
-		*head = newer;
-		return ;
-	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
+		write(fd, &s[i], 1);
+		i++;
 	}
 	return ;
 }

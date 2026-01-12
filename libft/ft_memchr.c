@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/25 19:38:43 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/07 19:10:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_list	*last;
+	size_t			i;
+	unsigned char	*src;
+	unsigned char	to_find;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	src = (unsigned char *) s;
+	to_find = (unsigned char) c;
+	while (i < n)
 	{
-		*head = newer;
-		return ;
+		if (src[i] == to_find)
+			return (&src[i]);
+		i++;
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	return (NULL);
 }

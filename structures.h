@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/01/12 22:31:34 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/01/12 22:32:27 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#ifndef STRUCTURES_H
+# define STRUCTURES_H
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+typedef struct s_list
 {
-	t_list	*last;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
-	{
-		*head = newer;
-		return ;
-	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
-}
+#endif

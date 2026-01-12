@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:41:33 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/08 19:37:22 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:44:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *ne)
+void	ft_lstadd_front(t_list **head, t_list *newer)
 {
-	if (!lst || !ne)
+	if (!head || !newer)
 		return ;
-	ne -> next = *lst;
-	*lst = ne;
+	newer -> next = *head;
+	*head = newer;
 }

@@ -6,16 +6,19 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:26:51 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 19:38:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/12 22:40:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "pushswap.h"
+#include "libft/libft.h"
 
-void	ft_stacka(int number)
-{
-	//changer type argv pour recevoir la liste + voir commnet faire la stack
-	//2. creer la liste argv
-	//3. donner les elelemnts de argv dans la liste a 
-	//
-	
-
-}
+// void	ft_fillstka(t_list **head, char *nb)
+// {
+// 	t_list	add;
+// 	void	*number;
+//
+// 	number = ft_atoi(nb);
+// 	add = ft_lstnew(number);
+// 	ft_lstadd_back(head, number);
+// 	return ;
+// }

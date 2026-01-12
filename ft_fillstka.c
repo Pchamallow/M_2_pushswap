@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_fillstka.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/01/12 19:26:51 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/01/12 23:22:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "pushswap.h"
+#include "libft/libft.h"
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+void	ft_fillstka(t_list **head, char *nb)
 {
-	t_list	*last;
+	// t_list	add;
+	t_list	*number;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
-	{
-		*head = newer;
-		return ;
-	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
+	number = ft_lstnew(0);
+	number->content = ft_atoi(nb);
+	ft_lstadd_back(head, number);
 	return ;
 }

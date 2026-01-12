@@ -14,56 +14,62 @@ CC = cc
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror -g
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
+BUILD_DIR = .push_swap
+INCLUDES = -Iincludes -Ilibft/includes
+NAME = push_swap
+LIB = libft/libft.a
+
 
 #Colors
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-# Actual Folder
-SRCS_MAIN = pushswap.c\
-	#fichier.c\
 
 # Libft Folder
-SRCS_LIBFT = ./libft/ft_lstadd_back.c\
-			 ./libft/ft_lstadd_front.c\
-			 ./libft/ft_lstclear.c\
-			 ./libft/ft_lstdelone.c\
-			 ./libft/ft_lstiter.c\
-			 ./libft/ft_lstlast.c\
-			 ./libft/ft_lstmap.c\
-			 ./libft/ft_lstnew.c\
-			 ./libft/ft_lstsize.c\
+DIR_LIBFT= ./libft
+LDFLAGS = -L$(DIR_LIBFT)
+LDLIBS = -lft
+
 
 # All SRC
-SRCS = $(SRCS_MAIN) $(SRCS_LIBFT)
+SRCS = pushswap.c\
+	   ft_fillstka.c\
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 
-NAME = libftprintf.a
+
 
 
 # Commands
-all: $(NAME)
-	@echo "${GREEN}💫 All compiled 💫${NC}"
+all: $(LIB) $(NAME)
+	@echo $(GREEN)"💫 All compiled 💫"$(NC)
 
-$(NAME): $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
+$(LIB):
+	@$(MAKE) -C $(DIR_LIBFT)
+
+$(NAME): $(BUILD_DIR) $(OBJS) $(LIB)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+	@echo $(GREEN)"✨ $(NAME) created ✨"$(NC)
+
+$(BUILD_DIR):
+	@mkdir -p $@
 
 # règle générique .c -> .o
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
-	@echo ""
-	@echo "${GREEN}.o are cleaned.. 🧹${NC}"
+	@echo make -C $(DIR_LIBFT) clean
+	@echo rm -rf $(BUILD_DIR)
+	@echo ${GREEN}"Build is clean.. 🧹"${NC}
 
 fclean: clean
+	@$(make) -C $(DIR_LIBFT) fclean
 	@rm -f $(NAME)
-	@echo "${GREEN}.a are cleaned.. 🧹${NC}"
+	@echo ${GREEN}"Pushswap is clean.. 🧹"${NC}
 
 re: fclean all
-
 
 
 #ARCHIVES
@@ -80,14 +86,6 @@ unzip:
 setup :
 	@mkdir 00_ARCHIVES
 	@echo "${GREEN}Setup is good !${NC}"
-	
 
 
 .PHONY: all clean fclean re
-
-
-#Ameliorations a ajouter 
-# sans @ = calcul de la commande + print de la commande
-#avec @ = juste print de la commande
-#COULEURS : 
-# notamment dans le c pour les segment fault etc avoir du rouge pour une meilleure visibilité

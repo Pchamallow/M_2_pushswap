@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:14:17 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:44:28 by pswirgie         ###   ########.fr       */
+/*   Created: 2025/10/27 13:03:15 by pswirgie          #+#    #+#             */
+/*   Updated: 2025/11/09 17:20:30 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stddef.h>
 
-void	ft_lstadd_back(t_list **head, t_list *newer)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_list	*last;
+	size_t	i;
+	size_t	j;
+	char	*src;
 
-	if (!head || !newer)
-		return ;
-	if (!*head)
+	i = 0;
+	j = 0;
+	if (!little)
+		return ((char *)big);
+	if (!big)
+		return (NULL);
+	src = (char *)big;
+	if (little[i] == 0 || !little)
+		return (src);
+	while (src[i] && (i + j) < len)
 	{
-		*head = newer;
-		return ;
+		if (src[i + j] == little[j])
+			j++;
+		else
+		{
+			j = 0;
+			i++;
+		}
+		if (!little[j])
+			return (&src[i]);
 	}
-	else
-	{
-		last = ft_lstlast(*head);
-		last->next = newer;
-	}
-	return ;
+	return (NULL);
 }
