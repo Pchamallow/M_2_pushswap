@@ -25,6 +25,8 @@ int	isalphabet(char *arguments)
 	int	i;
 
 	i = 0;
+	if (!arguments)
+		return(1);
 	while (!arguments[i])
 	{
 		if (ft_isascii(arguments[i]) == 0)

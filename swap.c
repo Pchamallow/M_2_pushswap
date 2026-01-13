@@ -1,34 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 02:51:19 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/01/13 15:07:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
+
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
 
-int	main(int argc, char **argv)
-{
-	// int		i;
-	t_list **head;
 
-	(void)argc;
-	(void)argv;
-	//PARSING/////////////////////////////////
-	// i = 0;
-	// if (!argv || strargs(argv) == 1)
-	// {
-	// 	printerror();
-	// 	return (1);
-	// }
-	// i = 0;
-	head = ft_createstacka();
-	tester(head);
-	return (0);
+// stack a : le 2e devient 1er
+void	swapa(t_list **heada)
+{
+	t_list	*newer;
+
+	newer = (*heada)->next->content;
+	ft_lstadd_front(heada, newer);
+	ft_printf("%s", "sa");
+}
+
+t_list	**ft_createstacka()
+{
+	t_list	**head;
+	t_list	*new;
+	int		i = 0;
+
+	new = NULL;
+	head = &new;
+	// (**head).content = new;
+	while (i < 3)
+	{
+		new = ft_lstnew(0);
+		ft_lstadd_back(head, new);
+		i++;
+	}
+	return (head);
+}
+
+void	tester(t_list **head)
+{
+	swapa(head);
+	return ;
 }

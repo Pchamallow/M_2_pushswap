@@ -41,6 +41,7 @@ LDLIBSPRI = -lft
 SRCS = pushswap.c\
 	   ft_fillstka.c\
 	   parsing.c\
+	   swap.c\
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 

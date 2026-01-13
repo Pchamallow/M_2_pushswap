@@ -24,5 +24,11 @@ int		lengthlist(char **argv);
 int		printerror(void);
 int		isalphabet(char *arguments);
 int		strargs(char **argv);
+t_list	**ft_createstacka();
+
+
+//MOVES
+void	swapa(t_list **heada);
+
 
 #endif

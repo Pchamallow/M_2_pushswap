@@ -34,19 +34,4 @@
 // 	ft_printf("%s", "pa");
 // }
 
-void	ft_createstack()
-{
-	t_list	**head;
-	t_list	*new;
-	int		i = 0;
 
-	head = NULL;
-	new = NULL;
-	while (i < lengthlist)
-	{
-		new = ft_lstnew(0);
-		i++;
-	}
-	if (!head)
-		head.content = &new;
-}
