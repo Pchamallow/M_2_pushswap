@@ -16,7 +16,7 @@
 int	main(int argc, char **argv)
 {
 	// int		i;
-	t_list **head;
+	t_list *head;
 
 	(void)argc;
 	(void)argv;
@@ -28,7 +28,16 @@ int	main(int argc, char **argv)
 	// 	return (1);
 	// }
 	// i = 0;
-	head = ft_createstacka();
-	tester(head);
+	///////// CREATE ////////
+	head = (t_list *)malloc(sizeof(t_list ));
+	if (ft_createstacka(&head) == 1)
+		printerror();
+	/////// PRINT 2ND LINK ////////
+	if (!head || !head->next)
+    {
+        printf("La liste n'a pas de 2e élément\n");
+        return (1);
+    }
+	tester(&head);
 	return (0);
 }

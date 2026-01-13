@@ -58,7 +58,7 @@ int		ft_putnbr_fd(int n, int fd);
 int		ft_putunbr_fd(long int n, int fd);
 
 // Bonus Part
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *newer);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);

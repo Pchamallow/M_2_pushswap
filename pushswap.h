@@ -18,17 +18,23 @@
 
 //SOURCE
 // void	ft_createstka(void);
-void	ft_fillstka(t_list **head, char *nb);
+void	filllist(t_list *head);
 void	ft_pushpa(t_list **stacka, t_list **stackb);
 int		lengthlist(char **argv);
 int		printerror(void);
 int		isalphabet(char *arguments);
 int		strargs(char **argv);
-t_list	**ft_createstacka();
+int	ft_createstacka(t_list **head);
+void	tester(t_list **head);
+void	printlist(t_list *head);
+
+
 
 
 //MOVES
-void	swapa(t_list **heada);
+void	swapa(t_list *head);
+void	rotatea(t_list	*head);
+
 
 
 #endif
