@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 00:46:31 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:48:41 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,10 @@
 //SOURCE
 // void	ft_createstka(void);
 void	ft_fillstka(t_list **head, char *nb);
+void	ft_pushpa(t_list **stacka, t_list **stackb);
+int		lengthlist(char **argv);
+int		printerror(void);
+int		isalphabet(char *arguments);
+int		strargs(char **argv);
 
 #endif

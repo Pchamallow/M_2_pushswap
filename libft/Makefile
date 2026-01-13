@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/13 00:30:25 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/13 00:52:56 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,7 @@ FILES = ft_atoi.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c\
-
-BONUS_FILES = ft_lstnew.c \
+	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -60,7 +59,6 @@ BONUS_FILES = ft_lstnew.c \
 	ft_lstmap.c \
 
 OBJET = ${FILES:.c=.o}
-OBJET_BONUS = ${BONUS_FILES:.c=.o}
 
 %.o : %.c
 	@${CC} ${FLAGS} -c $< -o $@
@@ -72,15 +70,12 @@ ${NAME}: ${OBJET}
 	@echo "Libft.a is created"
 
 clean :
-	@rm -rf ${OBJET} ${OBJET_BONUS}
+	@rm -rf ${OBJET}
 
 fclean : clean
 	@rm -rf ${NAME}
 
 re : fclean all
-
-bonus : ${OBJET_BONUS}
-	@ar rcs ${NAME} ${OBJET_BONUS}
 
 zip:
 	zip DATE_HOUR.zip *

@@ -40,6 +40,7 @@ LDLIBSPRI = -lft
 # All SRC
 SRCS = pushswap.c\
 	   ft_fillstka.c\
+	   parsing.c\
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 
@@ -50,10 +51,10 @@ all: $(LIB) $(PRI) $(NAME)
 	@echo $(GREEN)"💫 All compiled 💫"$(NC)
 
 $(LIB):
-	@$(MAKE) -C $(DIR_LIBFT)
+	@$(MAKE) -C $(DIR_LIBFT) -s
 
 $(PRI):
-	@$(MAKE) -C $(DIR_PRINTF)
+	@$(MAKE) -C $(DIR_PRINTF) -s
 
 $(NAME): $(BUILD_DIR) $(OBJS) $(LIB) $(PRI)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(PRI) -o $(NAME)
@@ -68,14 +69,14 @@ $(BUILD_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	make -C $(DIR_LIBFT) clean
-	make -C $(DIR_PRINTF) clean
+	make -C $(DIR_LIBFT) clean -s
+	make -C $(DIR_PRINTF) clean -s
 	@echo rm -rf $(BUILD_DIR)
 	@echo ${GREEN}"Build is clean.. 🧹"${NC}
 
 fclean: clean
-	@$(make) -C $(DIR_LIBFT) fclean
-	@$(make) -C $(DIR_PRINTF) fclean
+	make -C $(DIR_LIBFT) fclean -s
+	make -C $(DIR_PRINTF) fclean -s
 	@rm -f $(NAME)
 	@echo ${GREEN}"Pushswap is clean.. 🧹"${NC}
 
@@ -97,5 +98,5 @@ setup :
 	@mkdir 00_ARCHIVES
 	@echo "${GREEN}Setup is good !${NC}"
 
-
+.SILENT:
 .PHONY: all clean fclean re

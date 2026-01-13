@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 	int		(*ft_format[127])(va_list, int);
 
 	count = 0;
-	fd = 1;
+	fd = 2;
 	if (fd < 0 || !format)
 		return (-1);
 	va_start(args, format);
