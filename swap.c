@@ -29,22 +29,28 @@ void	printlist(t_list *head)
 void swapa(t_list *head)
 {
 	int	tmp;
+	t_list	*second = head->next;
 
-	tmp = head->next->content;//= 0
-	head->next->content = head->next->next->content;
-	head->next->next->content = tmp;
-	ft_printf("%s", "test");
-	ft_printf("%d", head->next->next->next->content);
+	tmp = second->content;
+	second->content = second->next->content;
+	second->next->content = tmp;
 	return ;
 }
 
 // ROTATE    Shift up all elements of stack a by 1. The first element becomes the last one.
-void	rotatea(t_list	*head)
+void	rotatea(t_list	**head)
 {
-	ft_printf("\n%s\n", "ROTATE A");
-	head->next= head->next->next;
-	// head = head->next->next->next;
-	printlist(head);
+	// t_list	*second = head->next;
+	t_list	*first = *head;
+	t_list	*last = *head;
+
+	if (*head == NULL || (*head)->next == NULL) 
+        return;
+	while (last->next != NULL)
+		last = last->next;
+	*head = first->next;//le 2e devient la tete (pas le 1er)
+	first->next = NULL;//le 1er est isole
+	last->next = *head;//apres le dernier pointe vers l ancien 1er
 }
 
 void	filllist(t_list *head)
@@ -79,17 +85,20 @@ int	ft_createstacka(t_list **head)
 		ft_lstadd_back(head, new);
 		i++;
 	}
-	////// FILL  /   PRINT    THE LIST //////
-	// filllist(*head);
 	return (0);
 }
 
 void	tester(t_list **head)
 {
+	int	length;
+
+	length = 4;
 	ft_printf("\n%s\n", "SWAP A");
 	swapa(*head);
 	ft_printf("%s", "sa\n");
 	printlist(*head);
-	rotatea(*head);
+	ft_printf("\n%s\n", "ROTATE A");
+	rotatea(head);
+	printlist(*head);
 	return ;
 }

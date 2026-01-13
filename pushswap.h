@@ -33,7 +33,7 @@ void	printlist(t_list *head);
 
 //MOVES
 void	swapa(t_list *head);
-void	rotatea(t_list	*head);
+void	rotatea(t_list	**head);
 
 
 
