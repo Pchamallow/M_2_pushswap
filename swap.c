@@ -34,13 +34,13 @@ void swapa(t_list *head)
 	tmp = second->content;
 	second->content = second->next->content;
 	second->next->content = tmp;
+	ft_printf("%s", "sa\n");
 	return ;
 }
 
 // ROTATE    Shift up all elements of stack a by 1. The first element becomes the last one.
 void	rotatea(t_list	**head)
 {
-	// t_list	*second = head->next;
 	t_list	*first = *head;
 	t_list	*last = *head;
 
@@ -51,6 +51,25 @@ void	rotatea(t_list	**head)
 	*head = first->next;//le 2e devient la tete (pas le 1er)
 	first->next = NULL;//le 1er est isole
 	last->next = *head;//apres le dernier pointe vers l ancien 1er
+	ft_printf("%s", "ra\n");
+}
+
+void	reverserotatea(t_list	**head)
+{
+	t_list	*last = *head;
+	t_list	*prevlast = NULL;
+
+	if (*head == NULL || (*head)->next == NULL) 
+        return;
+	while (last->next != NULL)
+	{
+		prevlast = last;//avant dernier
+		last = last->next;
+	}
+	prevlast->next = NULL;//prevlast dernier
+	last->next = *head;//last devient premier (head etant a 0)
+	*head = last;
+	ft_printf("%s", "rra\n");
 }
 
 void	filllist(t_list *head)
@@ -95,10 +114,11 @@ void	tester(t_list **head)
 	length = 4;
 	ft_printf("\n%s\n", "SWAP A");
 	swapa(*head);
-	ft_printf("%s", "sa\n");
 	printlist(*head);
 	ft_printf("\n%s\n", "ROTATE A");
 	rotatea(head);
 	printlist(*head);
+	ft_printf("\n%s\n", "REVERSE ROTATE A");
+	reverserotatea(head);
 	return ;
 }
