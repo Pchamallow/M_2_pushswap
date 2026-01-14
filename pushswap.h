@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 02:48:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:44:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,19 @@ void	tester(t_list **heada, t_list **headb);
 void	swap(t_list **head);
 void    swapa(t_list **head);
 void    swapb(t_list **head);
+void    swapab(t_list **heada, t_list **headb);
+
 //ROTATE
 void	rotate(t_list **head);
 void    rotatea(t_list **head);
 void    rotateb(t_list **head);
+void    rotateab(t_list **heada, t_list **headb);
+
 //REVERSE ROTATE
 void	reverserotate(t_list **head);
 void	reverserotatea(t_list **head);
 void	reverserotateb(t_list **head);
+void    reverserotateab(t_list **heada, t_list **headb);
 
 
 

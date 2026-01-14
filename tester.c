@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:38:22 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:39:26 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	printlist(t_list *head)
 		current = current->next;
 	}
 }
-
 
 // void	filllist(t_list *head)
 // {

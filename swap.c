@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:28:19 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:33:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:43:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ void swapb(t_list **head)
 {
 	swap(head);
 	ft_printf("%s", "sb\n");
+}
+
+void swapab(t_list **heada, t_list **headb)
+{
+	swap(heada);
+    swap(headb);
+	ft_printf("%s", "ss\n");
 }

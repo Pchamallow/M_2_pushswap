@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:38:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:38:18 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:46:25 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,19 @@ void	reverserotate(t_list	**head)
 
 void reverserotatea(t_list **head)
 {
-	rotate(head);
+	reverserotate(head);
 	ft_printf("%s", "rra\n");
 }
 
 void reverserotateb(t_list **head)
 {
-	rotate(head);
+	revserserotate(head);
 	ft_printf("%s", "rrb\n");
+}
+
+void    reverserotateab(t_list **heada, t_list **headb)
+{
+	reverserotate(heada);
+	reverserotate(headb);
+	ft_printf("%s", "rrr\n");
 }
