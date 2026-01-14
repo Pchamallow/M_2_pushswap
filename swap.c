@@ -26,14 +26,16 @@ void	printlist(t_list *head)
 
 /////////////////////////// STACK A ///////////////////////////////////////////////////////////
 // SWAP   2nd become 1st
-void swapa(t_list *head)
+void swapa(t_list **head)
 {
-	int	tmp;
-	t_list	*second = head->next;
+    t_list *first = *head;
+    t_list *second = (*head)->next;
+    t_list *third = (*head)->next->next;
 
-	tmp = second->content;
-	second->content = second->next->content;
-	second->next->content = tmp;
+    second->next = first;
+    second->prev = NULL;
+    first->next = third;
+    *head = second;
 	ft_printf("%s", "sa\n");
 	return ;
 }
@@ -56,23 +58,23 @@ void	rotatea(t_list	**head)
 	ft_printf("%s", "ra\n");
 }
 
-void	reverserotatea(t_list	**head)
-{
- 	t_list *tmp = *head;
-	// t_list *first = *head;
+// void	reverserotatea(t_list	**head)
+// {
+//  	t_list *tmp = *head;
+// 	// t_list *first = *head;
 
-	if (*head == NULL || (*head)->next == NULL) 
-        return;
-	while (tmp != NULL)
-	{
-		// ft_printf("%d\n", tmp->content);
-		tmp = tmp->prev;
-	}
-	// *head = tmp->next;
-	// tmp->next = NULL;
-	// first->next= *head;
-	ft_printf("%s", "rra\n");
-}
+// 	if (*head == NULL || (*head)->next == NULL) 
+//         return;
+// 	while (tmp != NULL)
+// 	{
+// 		// ft_printf("%d\n", tmp->content);
+// 		tmp = tmp->prev;
+// 	}
+// 	// *head = tmp->next;
+// 	// tmp->next = NULL;
+// 	// first->next= *head;
+// 	ft_printf("%s", "rra\n");
+// }
 
 // void	filllist(t_list *head)
 // {
@@ -98,7 +100,7 @@ int	ft_createstacka(t_list **head)
 
 	i = 0;
 	// CREATE
-	while (i < 3)
+	while (i < 8)
 	{
 		new = ft_lstnew(i);
 		// ft_printf("%d", new->content);
@@ -113,8 +115,8 @@ int	ft_createstacka(t_list **head)
 void	tester(t_list **head)
 {
 	ft_printf("\n%s\n", "SWAP A");
-	swapa(*head);
-	// printlist(*head);
+	swapa(head);
+	printlist(*head);
 	// ft_printf("\n%s\n", "ROTATE A");
 	// rotatea(head);
 	// printlist(*head);
