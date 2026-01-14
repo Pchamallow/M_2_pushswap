@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 15:07:41 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:57:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 void	printlist(t_list *head)
 {
-	int i = 0;
-	while (i < 3)
+	t_list *current = head;
+
+	while (current != NULL)
 	{
-		ft_printf("%d\n", head->next->content);
-		head = head->next;
-		i++;
+		ft_printf("%d\n", current->content);
+		current = current->next;
 	}
 }
 
@@ -74,35 +74,36 @@ void	reverserotatea(t_list	**head)
 	ft_printf("%s", "rra\n");
 }
 
-void	filllist(t_list *head)
-{
-	int	i = 0;
+// void	filllist(t_list *head)
+// {
+// 	int	i = 0;
 
-	head->content = i;
-	while (i < 3)
-	{
-		head->content = i;
-		head = head->next;
-		i++;
-	}
-	// printlist(head);
-	return ;
-}
+// 	head->content = i;
+// 	while (i < 3)
+// 	{
+// 		head->content = i;
+// 		ft_printf("%d", head->content);
+// 		head = head->next;
+// 		i++;
+// 	}
+// 	// printlist(head);
+// 	return ;
+// }
 
 // create stack a
 int	ft_createstacka(t_list **head)
 {
 	t_list	*new;
-	int		i = 0;
+	int		i;
 
+	i = 0;
 	// CREATE
-	ft_printf("%s\n", "CREATED STACK A");
 	while (i < 3)
 	{
 		new = ft_lstnew(i);
+		// ft_printf("%d", new->content);
 		if (!new)
 			return (1);
-		ft_printf("%d\n", new->content);
 		ft_lstadd_back(head, new);
 		i++;
 	}
@@ -111,17 +112,14 @@ int	ft_createstacka(t_list **head)
 
 void	tester(t_list **head)
 {
-	int	length;
-
-	length = 4;
 	ft_printf("\n%s\n", "SWAP A");
 	swapa(*head);
-	printlist(*head);
-	ft_printf("\n%s\n", "ROTATE A");
-	rotatea(head);
-	printlist(*head);
-	ft_printf("\n%s\n", "REVERSE ROTATE A");
-	reverserotatea(head);
-	printlist(*head);
+	// printlist(*head);
+	// ft_printf("\n%s\n", "ROTATE A");
+	// rotatea(head);
+	// printlist(*head);
+	// ft_printf("\n%s\n", "REVERSE ROTATE A");
+	// reverserotatea(head);
+	// printlist(*head);
 	return ;
 }

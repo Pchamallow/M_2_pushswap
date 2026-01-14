@@ -29,9 +29,11 @@ int	main(int argc, char **argv)
 	// }
 	// i = 0;
 	///////// CREATE ////////
-	head = (t_list *)malloc(sizeof(t_list ));
+	head = NULL;
+	ft_printf("%s\n", "CREATED STACK A");
 	if (ft_createstacka(&head) == 1)
 		printerror();
+	printlist(head);
 	/////// PRINT 2ND LINK ////////
 	if (!head || !head->next)
     {
