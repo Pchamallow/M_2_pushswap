@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 02:56:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 20:32:16 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+
 #include "ft_printf/ft_printf.h"
 #include "pushswap.h"
 #include <stdlib.h>
@@ -64,7 +64,12 @@ int	strargs(char **argv)
 	return (length);
 }
 
-
+//1. argv tout en une string qui est
+//2. cette string, la mettre dans tableaux, spearer des qu il y a un espace ou autre
+char	*allnumbers(char **argv)
+{
+	ft_strjoin(argv)
+}
 //argv -> avoir une liste 
 //argv -> simple = strjoin le tout puis detecte les espaces
 //ou argv -> espace ou +/- -> atoi -> stack a
