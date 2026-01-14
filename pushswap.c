@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:33:14 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 19:03:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	///////// CREATE STACK A et B////////
 	heada = NULL;
 	headb = NULL;
-	if (ft_createstack(&heada) == 1 || ft_createstack(&headb))
+	if (ft_createstacka(&heada) == 1 || ft_createstackb(&headb))
 		printerror();
 	tester(&heada, &headb);
 	return (0);
