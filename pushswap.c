@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/13 02:51:19 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:33:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "pushswap.h"
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
@@ -16,10 +17,12 @@
 int	main(int argc, char **argv)
 {
 	// int		i;
-	t_list *head;
+	t_list *heada;
+	t_list *headb;
 
 	(void)argc;
 	(void)argv;
+
 	//PARSING/////////////////////////////////
 	// i = 0;
 	// if (!argv || strargs(argv) == 1)
@@ -28,18 +31,12 @@ int	main(int argc, char **argv)
 	// 	return (1);
 	// }
 	// i = 0;
-	///////// CREATE ////////
-	head = NULL;
-	ft_printf("%s\n", "CREATED STACK A");
-	if (ft_createstacka(&head) == 1)
+
+	///////// CREATE STACK A et B////////
+	heada = NULL;
+	headb = NULL;
+	if (ft_createstack(&heada) == 1 || ft_createstack(&headb))
 		printerror();
-	printlist(head);
-	/////// PRINT 2ND LINK ////////
-	if (!head || !head->next)
-    {
-        printf("La liste n'a pas de 2e élément\n");
-        return (1);
-    }
-	tester(&head);
+	tester(&heada, &headb);
 	return (0);
 }

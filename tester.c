@@ -1,0 +1,89 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tester.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/01/14 18:38:22 by pswirgie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pushswap.h"
+#include "ft_printf/ft_printf.h"
+
+void	printlist(t_list *head)
+{
+	t_list *current = head;
+
+	while (current != NULL)
+	{
+		ft_printf("%d\n", current->content);
+		current = current->next;
+	}
+}
+
+
+// void	filllist(t_list *head)
+// {
+// 	int	i = 0;
+
+// 	head->content = i;
+// 	while (i < 3)
+// 	{
+// 		head->content = i;
+// 		ft_printf("%d", head->content);
+// 		head = head->next;
+// 		i++;
+// 	}
+// 	// printlist(head);
+// 	return ;
+// }
+
+// create stack a
+int	ft_createstack(t_list **head)
+{
+	t_list	*new;
+	int		i;
+
+	i = 0;
+	// CREATE
+	while (i < 5)
+	{
+		new = ft_lstnew(i);
+		if (!new)
+			return (1);
+		ft_lstadd_back(head, new);
+		i++;
+	}
+	return (0);
+}
+
+void	tester(t_list **heada, t_list **headb)
+{
+	////////////////////// PRINT STACKS /////////////////////////////////
+	// ft_printf("\n%s\n", "STACK A");
+	// printlist(*heada);
+	// ft_printf("\n%s\n", "STACK B");
+	// printlist(*headb);
+
+	// ////////////////////// MOVES STACK A /////////////////////////////////
+	ft_printf("\n%s\n", "SWAP A");
+	swapa(heada);
+	printlist(*heada);
+	
+	swapb(headb);
+	// ft_printf("\n%s\n", "ROTATE A");
+	// rotatea(heada);
+	// printlist(*heada);
+
+	// ft_printf("\n%s\n", "REVERSE ROTATE A");
+	// reverserotatea(heada);
+	// printlist(*heada);
+
+
+
+
+	return ;
+}

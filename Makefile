@@ -3,12 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+         #
+#    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/05 18:42:27 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/14 18:36:47 by pswirgie         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** 
+# **************************************************************************** #
 
 CC = cc
 AR = ar rcs
@@ -22,7 +22,6 @@ NAME = push_swap
 #Colors
 GREEN='\033[0;32m'
 NC='\033[0m'
-
 
 # Libft Folder
 DIR_LIBFT= ./libft
@@ -39,9 +38,11 @@ LDLIBSPRI = -lft
 
 # All SRC
 SRCS = pushswap.c\
+	   tester.c\
 	   ft_fillstka.c\
 	   parsing.c\
 	   swap.c\
+	   rotate.c\
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 

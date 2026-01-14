@@ -24,17 +24,27 @@ int		lengthlist(char **argv);
 int		printerror(void);
 int		isalphabet(char *arguments);
 int		strargs(char **argv);
-int	ft_createstacka(t_list **head);
-void	tester(t_list **head);
+int     ft_createstack(t_list **head);
 void	printlist(t_list *head);
+void	tester(t_list **heada, t_list **headb);
 
 
 
 
-//MOVES
-void	swapa(t_list *head);
-void	rotatea(t_list	**head);
-void	reverserotatea(t_list	**head);
+/////////////////////////// MOVES
+//SWAP
+void	swap(t_list **head);
+void    swapa(t_list **head);
+void    swapb(t_list **head);
+//ROTATE
+void	rotate(t_list **head);
+void    rotatea(t_list **head);
+void    rotateb(t_list **head);
+//REVERSE ROTATE
+void	reverserotate(t_list **head);
+void	reverserotatea(t_list **head);
+void	reverserotateb(t_list **head);
+
 
 
 
