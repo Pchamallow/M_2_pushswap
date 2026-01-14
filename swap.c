@@ -33,7 +33,6 @@ void swapa(t_list **head)
     t_list *third = (*head)->next->next;
 
     second->next = first;
-    second->prev = NULL;
     first->next = third;
     *head = second;
 	ft_printf("%s", "sa\n");
@@ -43,38 +42,33 @@ void swapa(t_list **head)
 // ROTATE    Shift up all elements of stack a by 1. The first element becomes the last one.
 void	rotatea(t_list	**head)
 {
-	t_list	*first;
-	t_list	*last;
+	t_list	*first = *head;
+	t_list	*newfirst = (*head)->next;
+	t_list	*last = (*head)->next;
 
-	first = *head;
-	last = *head;
-	if (*head == NULL || (*head)->next == NULL) 
-        return;
-	while (last->next != NULL)
-		last = last->next;
-	*head = first->next;//le 2e devient la tete (pas le 1er)
-	first->next = NULL;//le 1er est isole
-	last->next = *head;//apres le dernier pointe vers l ancien 1er
+	last = ft_lstlast(*head);//=4
+	last->next = first;//=1
+	first->next = NULL;
+	*head = newfirst;
 	ft_printf("%s", "ra\n");
 }
 
-// void	reverserotatea(t_list	**head)
-// {
-//  	t_list *tmp = *head;
-// 	// t_list *first = *head;
+void	reverserotatea(t_list	**head)
+{
+	t_list	*first;
+	t_list	*beforelast;
+	t_list	*last;
 
-// 	if (*head == NULL || (*head)->next == NULL) 
-//         return;
-// 	while (tmp != NULL)
-// 	{
-// 		// ft_printf("%d\n", tmp->content);
-// 		tmp = tmp->prev;
-// 	}
-// 	// *head = tmp->next;
-// 	// tmp->next = NULL;
-// 	// first->next= *head;
-// 	ft_printf("%s", "rra\n");
-// }
+	first = *head;
+	beforelast = *head;
+	last = ft_lstlast(*head);
+	while (beforelast->next->next != NULL)
+		beforelast = beforelast->next;
+	beforelast->next = NULL;
+	last->next = first;
+	*head = last;
+	ft_printf("%s", "rra\n");
+}
 
 // void	filllist(t_list *head)
 // {
@@ -100,7 +94,7 @@ int	ft_createstacka(t_list **head)
 
 	i = 0;
 	// CREATE
-	while (i < 8)
+	while (i < 5)
 	{
 		new = ft_lstnew(i);
 		// ft_printf("%d", new->content);
@@ -117,11 +111,14 @@ void	tester(t_list **head)
 	ft_printf("\n%s\n", "SWAP A");
 	swapa(head);
 	printlist(*head);
-	// ft_printf("\n%s\n", "ROTATE A");
-	// rotatea(head);
-	// printlist(*head);
-	// ft_printf("\n%s\n", "REVERSE ROTATE A");
-	// reverserotatea(head);
-	// printlist(*head);
+
+	ft_printf("\n%s\n", "ROTATE A");
+	rotatea(head);
+	printlist(*head);
+
+	ft_printf("\n%s\n", "REVERSE ROTATE A");
+	reverserotatea(head);
+	printlist(*head);
+
 	return ;
 }
