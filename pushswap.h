@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 19:47:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:43:27 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,29 @@
 
 //SOURCE
 // void	ft_createstka(void);
-void	filllist(t_list *head);
 void	ft_pushpa(t_list **stacka, t_list **stackb);
 int		lengthlist(char **argv);
-int		printerror(void);
-int		isalphabet(char *arguments);
 int		strargs(char **argv);
 int     ft_createstacka(t_list **head);
 int     ft_createstackb(t_list **head);
 void	printlist(t_list *head);
 void	tester(t_list **heada, t_list **headb);
+
+
+
+/***********************************************************************/
+/*                         PARSING                                     */
+/***********************************************************************/
+void    printerror(void);
+int     isalphabet(char **arguments);
+void	fillstacka(long number, t_list *head);
+void	onlynumber(char **argv, t_list **head);
+int     parse(char **argv, t_list *heada);
+
+int     ft_free(char *tab);
+void clearlist(t_list **head);
+
+
 
 
 /////////////////////////// MOVES

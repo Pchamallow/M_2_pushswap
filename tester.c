@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 20:29:03 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:28:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,28 @@ void	pushb(t_list **heada, t_list **headb)
 }
 
 
+int	ft_free(char *tab)
+{
+	int	i = 0;
 
-// void	filllist(t_list *head)
+	if (!tab)
+		return (1);
+	while (tab[i])
+	{
+		free(tab);
+		i++;
+	}
+	return (0);
+}
+
+
+
+// void	fillstacka(long number, t_list *head)
 // {
-// 	int	i = 0;
-
-// 	head->content = i;
-// 	while (i < 3)
-// 	{
-// 		head->content = i;
-// 		ft_printf("%d", head->content);
-// 		head = head->next;
-// 		i++;
-// 	}
-// 	// printlist(head);
-// 	return ;
+// 	(void)head;
+// 	number = 4;
 // }
+
 
 // create stack a
 int	ft_createstacka(t_list **head)

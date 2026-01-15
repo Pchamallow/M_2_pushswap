@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 08:14:24 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 19:51:53 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:00:14 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	ft_lstclear(t_list **head, void (*del)(void*))
+void	ft_lstclear(t_list **head, void (*del)(int))
 {
 	t_list	*tmp;
 	t_list	*tmp2;

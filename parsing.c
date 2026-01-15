@@ -6,75 +6,148 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 20:32:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/15 19:18:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 #include "pushswap.h"
+#include "libft/libft.h"
 #include <stdlib.h>
 
-int	printerror(void)
+void printerror(void)
 {
 	ft_printf("%s\n", "Error");
-	return (1);
 }
 
-int	isalphabet(char *arguments)
+int	isalphabet(char **arguments)
 {
-	int	i;
+	int	index;
+	int i;
 
-	i = 0;
+	index = 1;
 	if (!arguments)
-		return(1);
-	while (!arguments[i])
+		return (1);
+	while (arguments[index])
 	{
-		if (ft_isascii(arguments[i]) == 0)
-			return (1);
-		i++;
+		i = 0;
+		while (arguments[index][i])
+		{
+			if (ft_isalpha(arguments[index][i]))
+				return (1);
+			i++;
+		}
+		index++;
 	}
 	return (0);
 }
 
-int	strargs(char **argv)
-{
-	int		index;
-	int		i;
-	int		length;
-	char	*arguments;
 
-	index = 0;
-	i = 0;
-	arguments = NULL;
-	while (!argv[index])
+void clearlist(t_list **head)
+{
+    t_list *current = *head;
+    t_list *next;
+    
+    while (current)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *head = NULL;
+}
+
+void	onlynumber(char **argv, t_list **head)
+{
+	int		index = 1;
+	int		i = 0;
+	// int		y = 0;
+	char	*tmp = NULL;
+	char	*base = (char *)malloc(sizeof(char));
+
+	(*head)->content = 1;
+	while (argv[index])
 	{
-		if (!arguments)
-			arguments = malloc(sizeof(char *));
-		while (!argv[index][i])
-		{
-			arguments = ft_strjoin(arguments, argv[i]);
-			i++;
-		}
 		i = 0;
+		while (argv[index][i])
+		{
+			// if (argv[index][i] == ' ' || argv[index][i] == '\n' || argv[index][i] == '\t' || argv[index][i] == '\b')  
+			// {
+			// 	i++;
+			// 	continue;
+			// }
+			// ft_printf("%s\n", argv[index]);
+				// if (ft_isdigit(ft_atoi("1")) == 0)
+			if (ft_isdigit(argv[index][i]) == 0)			
+			{
+				// tmp = ft_strjoin(tmp, &argv[index][i]);
+				ft_printf("%c\n", argv[index][i]);
+				tmp = base;
+				base = ft_strjoin(tmp, &argv[index][i]);
+				free(tmp);
+				// ft_printf("%c\n", tmp[y]);
+				i++;
+			// 	y++;
+			}
+			else
+			{
+				i++;
+				continue;
+			}
+		}
+		free(base);
 		index++;
 	}
-	if (isalphabet(arguments) == 1)
-		return (1);
-	length = ft_strlen(arguments);
-	return (length);
+	clearlist(head);
+	return ;
 }
 
-//1. argv tout en une string qui est
-//2. cette string, la mettre dans tableaux, spearer des qu il y a un espace ou autre
-char	*allnumbers(char **argv)
+// int	strargs(char **argv)
+// {
+// 	int		index;
+// 	int		i;
+// 	int		length;
+// 	char	*arguments;
+
+// 	index = 0;
+// 	i = 0;
+// 	arguments = NULL;
+// 	while (!argv[index])
+// 	{
+// 		if (!arguments)
+// 			arguments = malloc(sizeof(char *));
+// 		while (!argv[index][i])
+// 		{
+// 			arguments = ft_strjoin(arguments, argv[i]);
+// 			i++;
+// 		}
+// 		i = 0;
+// 		index++;
+// 	}
+// 	if (isalphabet(arguments) == 1)
+// 		return (1);
+// 	length = ft_strlen(arguments);
+// 	return (length);
+// }
+
+
+/************** PARSING ********************/
+// error if : isascii, (put in stack puis regarder)double et INT max (avoir les digits en long), deja ranger
+int	parse(char **argv, t_list *heada)
 {
-	ft_strjoin(argv)
+	// int	error;
+
+	// error = 0;
+	if (!argv || !argv[2] || isalphabet(argv) == 1)
+		return (1);
+	else
+	{
+		ft_createstacka(&heada);
+		onlynumber(argv, &heada);
+	}
+	return (0);
 }
-//argv -> avoir une liste 
-//argv -> simple = strjoin le tout puis detecte les espaces
-//ou argv -> espace ou +/- -> atoi -> stack a
-//
-//
-//
+
+
 
 

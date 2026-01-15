@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+         #
+#    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/13 00:52:56 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/15 18:01:20 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,10 +53,10 @@ FILES = ft_atoi.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
-# 	ft_lstdelone.c \
+	ft_lstdelone.c \
 	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c \
+# 	ft_lstiter.c \
+# 	ft_lstmap.c \
 
 OBJET = ${FILES:.c=.o}
 

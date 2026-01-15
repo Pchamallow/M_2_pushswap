@@ -6,13 +6,13 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/14 18:36:47 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/15 17:20:07 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 AR = ar rcs
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
 INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
