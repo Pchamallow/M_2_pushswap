@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/16 15:48:52 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:14:59 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char **argv)
 	// tester(&heada, &headb);
 	
 	// clearlist(&heada);
+	
+
 	
 	return (0);
 
