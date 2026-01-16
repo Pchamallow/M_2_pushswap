@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 10:54:13 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/10/28 18:16:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:21:43 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_len(int n)
@@ -32,11 +33,7 @@ int	ft_len(int n)
 void	*ft_imalloc(int n)
 {
 	char	*str;
-	int		i;
-	int		len;
 
-	i = 0;
-	len = ft_len(n) + 1;
 	str = (char *)malloc(sizeof(char) * (ft_len(n) + 1));
 	if (!str)
 		return (NULL);

@@ -1,0 +1,6 @@
+theme omyzsh bien lisble : af-magic
+
+
+
+
+

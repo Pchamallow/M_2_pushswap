@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/15 19:18:55 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:18:19 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-void printerror(void)
+void	printerror(void)
 {
 	ft_printf("%s\n", "Error");
 }
@@ -42,8 +42,7 @@ int	isalphabet(char **arguments)
 	return (0);
 }
 
-
-void clearlist(t_list **head)
+void	clearlist(t_list **head)
 {
     t_list *current = *head;
     t_list *next;
@@ -129,7 +128,6 @@ void	onlynumber(char **argv, t_list **head)
 // 	length = ft_strlen(arguments);
 // 	return (length);
 // }
-
 
 /************** PARSING ********************/
 // error if : isascii, (put in stack puis regarder)double et INT max (avoir les digits en long), deja ranger

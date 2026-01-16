@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+         #
+#    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/13 00:33:39 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/16 15:28:24 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,11 +48,11 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 	@echo ""
-	@echo ".o are cleaned.. 🧹"
+	@echo "Printf .o are cleaned.. 🧹"
 
 fclean: clean
 	rm -f $(NAME)
-	@echo ".a are cleaned.. 🧹"
+	@echo "Printf library is cleaned.. 🧹"
 
 re: fclean all
 
