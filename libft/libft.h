@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:50:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/16 15:22:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:33:55 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 // Part 1 - Libc functions
 int		ft_atoi(char *str);
-void	ft_bzero(void *s, size_t n);
+void	ft_bzero(void *s);
 int		ft_isalpha(char c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);

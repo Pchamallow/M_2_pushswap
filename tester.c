@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/15 17:28:21 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:20:49 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	push(t_list **source, t_list **target)
 	first->next = oldfirst;
 	*target = first;
 }
+
 void	pusha(t_list **heada, t_list **headb)
 {
 	push(headb, heada);
@@ -48,7 +49,6 @@ void	pushb(t_list **heada, t_list **headb)
 	push(heada, headb);
 	ft_printf("%s\n", "pb");
 }
-
 
 int	ft_free(char *tab)
 {
@@ -74,21 +74,14 @@ int	ft_free(char *tab)
 
 
 // create stack a
-int	ft_createstacka(t_list **head)
+int	createstacka(t_list **head, long number)
 {
 	t_list	*new;
-	int		i;
 
-	i = 0;
-	// CREATE
-	while (i < 5)
-	{
-		new = ft_lstnew(i);
-		if (!new)
-			return (1);
-		ft_lstadd_back(head, new);
-		i++;
-	}
+	new = ft_lstnew(number);
+	if (!new)
+		return (1);
+	ft_lstadd_back(head, new);
 	return (0);
 }
 

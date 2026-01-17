@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:55:59 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/07 19:14:11 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:34:37 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -20,6 +21,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	tab = (char *)malloc(sizeof(char) * (nmemb * size));
 	if (tab == NULL)
 		return (NULL);
-	ft_bzero(tab, (nmemb * size));
+	ft_bzero(tab);
 	return (tab);
 }

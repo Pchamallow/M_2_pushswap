@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/16 16:14:59 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:11:24 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_printf/ft_printf.h"
 
 int	main(int argc, char **argv)
-
+{
 	// int		i = 1;
 	t_list *heada = NULL;
 	// t_list *headb;
@@ -28,8 +28,9 @@ int	main(int argc, char **argv)
 	}
 	// (void)argv;
 	else
+	{
 		return (0);
-
+	}
 	// PRINT ARGV //
 	// ft_printf("\n%s\n", "ARGV");
 	// while (argv[i])
@@ -46,8 +47,5 @@ int	main(int argc, char **argv)
 	// tester(&heada, &headb);
 	
 	// clearlist(&heada);
-	
-
-	
-	return (0);
+}
 

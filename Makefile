@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/16 15:33:41 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/17 15:05:57 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
-INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
+# INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
 NAME = push_swap
 
 
@@ -60,7 +60,7 @@ $(PRI):
 
 $(NAME): $(BUILD_DIR) $(OBJS) $(LIB) $(PRI)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(PRI) -o $(NAME)
-	@echo $(GREEN)"✨ Push_swap build created with Printf and Libft ✨"$(NC)
+	@echo $(GREEN)"✨ Push_swap build created, link with Printf and Libft ✨"$(NC)
 
 $(BUILD_DIR):
 	@mkdir -p $@
