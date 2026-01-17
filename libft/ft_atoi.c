@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:56:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/12 22:09:49 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:33:06 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+long int	ft_atoli(char *str)
 {
 	int	i;
-	int	sign;
-	int	result;
+	long int	sign;
+	long int	result;
 
 	i = 0;
 	sign = 1;

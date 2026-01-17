@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/17 15:05:57 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/17 17:36:09 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 
 # Commands
 all: $(LIB) $(PRI) $(NAME)
-	@echo $(GREEN)"💫 All compiled 💫"$(NC)
+	@echo $(GREEN)"💫 All compiled 💫\n"$(NC)
 
 $(LIB):
 	@$(MAKE) -C $(DIR_LIBFT) -s

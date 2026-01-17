@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 17:10:12 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:39:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	clearlist(t_list **head)
     *head = NULL;
 }
 
+
+
 int	is_already_sort(t_list **head)
 {
 	t_list	*current;
@@ -90,7 +92,19 @@ int	give_index(char *str, int i)
 	return (i);
 }
 
-void extract_numbers(char *str, t_list **head)
+
+int	is_int_minmax(char *numstr, t_list **head)
+{
+	if (ft_atoli(numstr) > 2147483647 || ft_atoli(numstr) < -2147483648)
+	{
+		free(numstr);
+		ft_lstclear(head);
+		return (1);
+	}
+	return (0);
+}
+
+int extract_numbers(char *str, t_list **head)
 {
     int i = 0;
     int start;
@@ -108,10 +122,13 @@ void extract_numbers(char *str, t_list **head)
         {
 			i = give_index(str, i);
 			numstr = ft_substr(str, start, i - start);
-			createstacka(head, ft_atoi(numstr));
+			if (is_int_minmax(numstr, head) == 1)
+				return (1);
+			createstacka(head, ft_atoli(numstr));
             free(numstr);
         }
     }
+	return (0);
 }
 
 int number_to_stack( char **argv, t_list **head)
@@ -120,7 +137,8 @@ int number_to_stack( char **argv, t_list **head)
     
     while (argv[index])
     {
-		extract_numbers(argv[index], head);
+		if (extract_numbers(argv[index], head) == 1)
+			return (1);
         index++;
     }
     return (0);
@@ -159,22 +177,20 @@ int number_to_stack( char **argv, t_list **head)
 // 	return (length);
 // }
 
+int	is_duplicate(t_list **head)
+{
+	
+}
+
 /************** PARSING ********************/
-// error if : isascii, (put in stack puis regarder)double et INT max (avoir les digits en long), deja ranger
+// error if : isalphabet, INT_max/INT_min, already_sort, double number)
 int	parse(char **argv, t_list *heada)
 {
-	// int	error;
-
-	// error = 0;
 	if (!argv || !argv[2] || isalphabet(argv) == 1)
 		return (1);
-	else
-	{
-		number_to_stack(argv, &heada);
-		if (is_already_sort(&heada) == 1)
-			return (1);
-		printlist(heada);
-	}
+	if (number_to_stack(argv, &heada) == 1 || is_already_sort(&heada) == 1 || is_duplicate(&heada) == 1)
+		return (1);
+	printlist(heada);
 	return (0);
 }
 
