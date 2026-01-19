@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/17 17:36:09 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/19 16:48:21 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS = pushswap.c\
 	   parsing.c\
 	   swap.c\
 	   rotate.c\
+	   number_to_stack.c\
 # 	   ft_fillstka.c\
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
