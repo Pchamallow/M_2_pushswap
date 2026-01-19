@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:55:59 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 15:34:37 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 20:15:22 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	tab = (char *)malloc(sizeof(char) * (nmemb * size));
 	if (tab == NULL)
 		return (NULL);
-	ft_bzero(tab);
+	ft_bzero(tab, (nmemb * size));
 	return (tab);
 }

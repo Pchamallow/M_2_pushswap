@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 NAME = libft.a
 FILES = ft_atol.c \

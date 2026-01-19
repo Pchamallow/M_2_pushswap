@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 17:44:40 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:47:00 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,46 @@ int	is_duplicated(t_list **head)
 	return (0);
 }
 
+int	valid_sign(char *str)
+{
+	int		i;
+	long	sign;
+	long	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			sign = sign * -1;
+			i++;
+		}
+		else
+			i++;
+	}
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (1);
+	return (0);
+}
+
 /************** PARSING ********************/
 // error if : isalphabet, INT_max/INT_min, already_sort, double number)
 int	parse(char **argv, t_list **heada)
 {
+	int	in_stack = 0;
+	
+	in_stack = number_to_stack(argv, heada);
 	if (!argv || !argv[2] || isalphabet(argv) == 1)
 		return (1);
-	if (number_to_stack(argv, heada) == 1 || is_sorted(heada) == 1 || is_duplicated(heada) == 1)
+	if (in_stack == 1 || is_duplicated(heada) == 1)
 	{
 		ft_lstclear(heada);
 		return (1);
 	}
+	if (is_sorted(heada))
+		return (0);
 	printlist(*heada);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 16:44:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:21:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int     give_index(char *str, int i);
 int     is_sorted(t_list **head);
 int     is_int_minmax(char *numstr);
 int     is_duplicated(t_list **head);
+int     valid_sign(char *str);
+
 
 
 
