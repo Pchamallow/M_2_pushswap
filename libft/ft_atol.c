@@ -6,15 +6,15 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:56:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 17:33:06 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:07:52 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long int	ft_atoli(char *str)
+long	ft_atol(char *str)
 {
 	int	i;
-	long int	sign;
-	long int	result;
+	long	sign;
+	long	result;
 
 	i = 0;
 	sign = 1;

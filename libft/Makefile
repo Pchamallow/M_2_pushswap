@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/16 15:24:45 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/19 16:08:39 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 NAME = libft.a
-FILES = ft_atoi.c \
+FILES = ft_atol.c \
 	ft_bzero.c \
 	ft_isalpha.c \
 	ft_isascii.c \

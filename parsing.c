@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 17:39:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:18:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	clearlist(t_list **head)
 
 
 
-int	is_already_sort(t_list **head)
+int	is_sorted(t_list **head)
 {
 	t_list	*current;
 	int		to_sort;
@@ -93,12 +93,11 @@ int	give_index(char *str, int i)
 }
 
 
-int	is_int_minmax(char *numstr, t_list **head)
+int	is_int_minmax(char *numstr)
 {
-	if (ft_atoli(numstr) > 2147483647 || ft_atoli(numstr) < -2147483648)
+	if (ft_atol(numstr) > 2147483647 || ft_atol(numstr) < -2147483648)
 	{
 		free(numstr);
-		ft_lstclear(head);
 		return (1);
 	}
 	return (0);
@@ -122,9 +121,10 @@ int extract_numbers(char *str, t_list **head)
         {
 			i = give_index(str, i);
 			numstr = ft_substr(str, start, i - start);
-			if (is_int_minmax(numstr, head) == 1)
+			if (is_int_minmax(numstr) == 1)
 				return (1);
-			createstacka(head, ft_atoli(numstr));
+			createstacka(head, ft_atol(numstr));
+			// ft_printf("%d", (*head)->content);
             free(numstr);
         }
     }
@@ -144,53 +144,25 @@ int number_to_stack( char **argv, t_list **head)
     return (0);
 }
 
-// void	alreadysorting()
+
+
+// int	is_duplicate(t_list **head)
 // {
 	
 // }
-
-// int	strargs(char **argv)
-// {
-// 	int		index;
-// 	int		i;
-// 	int		length;
-// 	char	*arguments;
-
-// 	index = 0;
-// 	i = 0;
-// 	arguments = NULL;
-// 	while (!argv[index])
-// 	{
-// 		if (!arguments)
-// 			arguments = malloc(sizeof(char *));
-// 		while (!argv[index][i])
-// 		{
-// 			arguments = ft_strjoin(arguments, argv[i]);
-// 			i++;
-// 		}
-// 		i = 0;
-// 		index++;
-// 	}
-// 	if (isalphabet(arguments) == 1)
-// 		return (1);
-// 	length = ft_strlen(arguments);
-// 	return (length);
-// }
-
-int	is_duplicate(t_list **head)
-{
-	
-}
 
 /************** PARSING ********************/
 // error if : isalphabet, INT_max/INT_min, already_sort, double number)
-int	parse(char **argv, t_list *heada)
+int	parse(char **argv, t_list **heada)
 {
 	if (!argv || !argv[2] || isalphabet(argv) == 1)
 		return (1);
-	if (number_to_stack(argv, &heada) == 1 || is_already_sort(&heada) == 1 || is_duplicate(&heada) == 1)
+	if (number_to_stack(argv, heada) == 1 || is_sorted(heada) == 1/*|| is_duplicate(&heada) == 1*/)
+	{
+		ft_lstclear(heada);
 		return (1);
-	printlist(heada);
+	}
+	printlist(*heada);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:50:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 17:33:14 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:08:22 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../structures.h"
 
 // Part 1 - Libc functions
-long int    ft_atoli(char *str);
+long        ft_atol(char *str);
 void	    ft_bzero(void *s);
 int		    ft_isalpha(char c);
 int	    	ft_isascii(int c);
