@@ -1,5 +1,14 @@
 theme omyzsh bien lisble : af-magic
 
+display i 
+display str
+display str[i]
+display numstr
+display start
+display end
+display len
+display sb
+display s
 
 
 

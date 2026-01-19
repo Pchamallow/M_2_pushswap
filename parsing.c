@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 19:47:00 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 22:32:38 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,25 +96,14 @@ int	is_duplicated(t_list **head)
 
 int	valid_sign(char *str)
 {
-	int		i;
-	long	sign;
-	long	result;
+	int	i;
 
 	i = 0;
-	sign = 1;
-	result = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
-		{
-			sign = sign * -1;
-			i++;
-		}
-		else
-			i++;
+		if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
+			return (1);
 	}
-	if (!(str[i] >= '0' && str[i] <= '9'))
-		return (1);
 	return (0);
 }
 

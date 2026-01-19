@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 19:21:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 22:56:05 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ int     extract_numbers(char *str, t_list **head);
 int     parse(char **argv, t_list **heada);
 int     ft_free(char *tab);
 void    clearlist(t_list **head);
-int     give_index(char *str, int i);
+int     end_number(char *str, int i);
 int     is_sorted(t_list **head);
 int     is_int_minmax(char *numstr);
 int     is_duplicated(t_list **head);
 int     valid_sign(char *str);
+char *fill_stacka(char *str, int i, t_list **head);
 
 
 
