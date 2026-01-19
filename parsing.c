@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 16:59:52 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:41:43 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	is_duplicated(t_list **head)
 	t_list	*current;
 	
 	number = *head;
-	current = (*head)->next;
-	while(number != NULL)
+	while (number != NULL)
 	{
+		current = number->next;
 		while (current != NULL)
 		{
 			if (current->content == number->content)
@@ -90,7 +90,6 @@ int	is_duplicated(t_list **head)
 			current = current->next;
 		}
 		number = number->next;
-		current = number->next;
 	}
 	return (0);
 }
