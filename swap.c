@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:28:19 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:43:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 00:47:23 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
  ///////////////////////////    SWAP    ///////////////////////////////////////////////////////////
 // 2nd become 1st 
-void swap(t_list **head)
+void swap(t_list **head, char c)
 {
     t_list *first = *head;
     t_list *second = (*head)->next;
@@ -24,24 +24,16 @@ void swap(t_list **head)
     second->next = first;
     first->next = third;
     *head = second;
+    if (c == 'a')
+		ft_printf("%s", "sa\n");
+	if (c == 'b')
+		ft_printf("%s", "sb\n");
 	return ;
-}
-
-void swapa(t_list **head)
-{
-	swap(head);
-	ft_printf("%s", "sa\n");
-}
-
-void swapb(t_list **head)
-{
-	swap(head);
-	ft_printf("%s", "sb\n");
 }
 
 void swapab(t_list **heada, t_list **headb)
 {
-	swap(heada);
-    swap(headb);
+	swap(heada, 'c');
+    swap(headb, 'c');
 	ft_printf("%s", "ss\n");
 }

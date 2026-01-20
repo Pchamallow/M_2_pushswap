@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/19 17:55:17 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/20 00:39:41 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ LDLIBSPRI = -lft
 # All SRC
 SRCS = pushswap.c\
 	   tester.c\
-	   parsing.c\
+	   parse.c\
 	   swap.c\
 	   rotate.c\
 	   number_to_stack.c\

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:38:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/14 18:46:25 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 00:47:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf/ft_printf.h"
 
 ///////////////////////////     REVERSE ROTATE     ///////////////////////////////////////////////////////////
-void	reverserotate(t_list	**head)
+void	reverserotate(t_list **head, char c)
 {
 	t_list	*first;
 	t_list	*beforelast;
@@ -28,23 +28,15 @@ void	reverserotate(t_list	**head)
 	beforelast->next = NULL;
 	last->next = first;
 	*head = last;
-}
-
-void reverserotatea(t_list **head)
-{
-	reverserotate(head);
-	ft_printf("%s", "rra\n");
-}
-
-void reverserotateb(t_list **head)
-{
-	revserserotate(head);
-	ft_printf("%s", "rrb\n");
+	if (c == 'a')
+		ft_printf("%s", "rra\n");
+	if (c == 'b')
+		ft_printf("%s", "rrb\n");
 }
 
 void    reverserotateab(t_list **heada, t_list **headb)
 {
-	reverserotate(heada);
-	reverserotate(headb);
+	reverserotate(heada, 'c');
+	reverserotate(headb, 'c');
 	ft_printf("%s", "rrr\n");
 }

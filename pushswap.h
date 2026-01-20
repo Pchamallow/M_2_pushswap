@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/19 22:56:05 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 00:47:04 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int     is_sorted(t_list **head);
 int     is_int_minmax(char *numstr);
 int     is_duplicated(t_list **head);
 int     valid_sign(char *str);
-char *fill_stacka(char *str, int i, t_list **head);
+char    *fill_stacka(char *str, int i, t_list **head);
 
 
 
@@ -56,21 +56,15 @@ char *fill_stacka(char *str, int i, t_list **head);
 
 /////////////////////////// MOVES
 // SWAP
-void	swap(t_list **head);
-void    swapa(t_list **head);
-void    swapb(t_list **head);
+void    swap(t_list **head, char c);
 void    swapab(t_list **heada, t_list **headb);
 
 // ROTATE
-void	rotate(t_list **head);
-void    rotatea(t_list **head);
-void    rotateb(t_list **head);
+void	rotate(t_list	**head, char c);
 void    rotateab(t_list **heada, t_list **headb);
 
 // REVERSE ROTATE
-void	reverserotate(t_list **head);
-void	reverserotatea(t_list **head);
-void	reverserotateb(t_list **head);
+void	reverserotate(t_list **head, char c);
 void    reverserotateab(t_list **heada, t_list **headb);
 
 // PUSH

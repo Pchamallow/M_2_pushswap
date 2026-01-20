@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:13:43 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 00:38:36 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	end_number(char *str, int i)
 	// 	i++;
 	// return (i);
 }
-
 
 int	is_int_minmax(char *numstr)
 {
