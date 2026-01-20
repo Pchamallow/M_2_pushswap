@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:39:18 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 01:04:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "libft/libft.h"
 #include <stdlib.h>
 
-// void	printerror(void)
-// {
-// 	ft_printf("%s\n", "Error");
-// }
+void	printerror(void)
+{
+	ft_printf("%s\n", "Error");
+}
 
 int	isalphabet(char **arguments)
 {

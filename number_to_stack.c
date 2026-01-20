@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:38:36 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 01:16:57 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	end_number(char *str, int i)
 
 int	is_int_minmax(char *numstr)
 {
-	if (ft_atol(numstr) > 2147483647 || ft_atol(numstr) < -2147483648)
+	if (ft_atol(numstr) >= 2147483647 || ft_atol(numstr) <= -2147483648)
 	{
 		free(numstr);
 		return (1);
@@ -49,10 +49,7 @@ char *fill_stacka(char *str, int i, t_list **head)
 	{
 		numstr = ft_substr(str, start, (end - start));
 		if (is_int_minmax(numstr) == 1)
-		{
-			free(numstr);
 			return (NULL);
-		}
 		createstacka(head, ft_atol(numstr));
 		// ft_printf("%d", (*head)->content);
 		return(numstr);

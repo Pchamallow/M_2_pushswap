@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:54:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 01:15:17 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ int	main(int argc, char **argv)
 	// t_list *headb;
 
 	//PARSING/////////////////////////////////
-	if (argc < 2)
+	if (ft_atol(argv[1]) >= INT_MAX || ft_atol(argv[1]) <= INT_MIN)
+	{
+		ft_printf("Error\n");
 		return (1);
+	}
+	if (argc == 2)
+		return (0);
 	valid = parse(argv, &heada);
 	if (valid == 1)
 	{
