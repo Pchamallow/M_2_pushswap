@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 04:45:30 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 23:15:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,12 @@ int	is_number(char *str)
 
 int	main(int argc, char **argv)
 {
-	// int		i = 1;
 	t_list *heada = NULL;
 	int		error = 0;
 	// t_list *headb;
 
-	//PARSING/////////////////////////////////
 	if (argv[1] == NULL)
 		return (0);
-	(void)argc;
-	//regarder dans argv[1] s il n y que des nombres sinon return error
 	error = is_number(argv[1]);
 	if (error == 1 || ft_atol(argv[1]) >= INT_MAX || ft_atol(argv[1]) <= INT_MIN)
 	{
@@ -57,28 +53,17 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}
+	else if (is_sorted(&heada) == 1)
+	{
+		ft_lstclear(&heada);
+		return (0);
+	}
 	else
 	{
-		// algo(heada);
+		algo(&heada);
 		printlist(heada);
 		ft_lstclear(&heada);
 	}
 	return (0);
-	// PRINT ARGV //
-	// ft_printf("\n%s\n", "ARGV");
-	// while (argv[i])
-	// {
-	// 	ft_printf("%s\n", argv[i]);
-	// 	i++;
-	// }
-
-	///////// CREATE STACK A et B////////
-	// heada = NULL;
-	// headb = NULL;
-	// if (ft_createstacka(&heada) == 1 || ft_createstackb(&headb))
-	// 	printerror();
-	// tester(&heada, &headb);
-	
-	// clearlist(&heada);
 }
 
