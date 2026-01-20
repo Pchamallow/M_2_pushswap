@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 04:01:00 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 04:45:30 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		// algo(heada);
+		printlist(heada);
 		ft_lstclear(&heada);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 04:05:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 04:38:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	is_duplicated(t_list **head)
 	}
 	return (0);
 }
+
 /*sign = before: not a digit  after: a digit */
 int	valid_sign(char *str)
 {
@@ -130,7 +131,7 @@ int	parse(int argc, char **argv, t_list **heada)
 	}
 	if (is_sorted(heada))
 		return (0);
-	printlist(*heada);
+	// printlist(*heada);
 	return (0);
 }
 
