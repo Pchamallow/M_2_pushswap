@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 03:27:30 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 04:05:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ int	digit_or_space(char **str, int argc)
 	while (str[index])
 	{
 		i = 0;
+		if(str[index][i] == '\0')
+			return (1);
 		while (str[index][i])
 		{
-			if (!(str[index][i] >= '0' && str[index][i] <= '9') && str[index][i] != ' ')
+			if (!(str[index][i] >= '0' && str[index][i] <= '9') && str[index][i] != ' ' && str[index][i] != '+' && str[index][i] != '-')
 				return (1);
 			i++;
 		}
 		index++;
 	}
-	if (str == NULL)
-		return (1);
 	return (0);
 }
 
@@ -122,7 +122,7 @@ int	parse(int argc, char **argv, t_list **heada)
 	error = digit_or_space(argv, argc);
 	if (!argv || error == 1)
 		return (1);
-	in_stack = number_to_stack(argv, heada);
+	in_stack = number_to_stack(argc, argv, heada);
 	if (in_stack == 1 || is_duplicated(heada) == 1)
 	{
 		ft_lstclear(heada);

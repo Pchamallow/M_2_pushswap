@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 02:29:59 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 04:01:00 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ int	main(int argc, char **argv)
 
 	//PARSING/////////////////////////////////
 	if (argv[1] == NULL)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+		return (0);
 	(void)argc;
 	//regarder dans argv[1] s il n y que des nombres sinon return error
 	error = is_number(argv[1]);

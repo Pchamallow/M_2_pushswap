@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 03:29:50 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 03:47:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,22 +77,18 @@ int	is_empty(char *str)
 int extract_numbers(char *str, t_list **head)
 {
     int		i;
-	int		error;
     char	*numstr;
 
 	i = 0;
-	error = 0;
     while (str[i])
     {
-		error = is_empty(str);
-		if (error == 1)
+		if (is_empty(str) == 1)
 			return (1);
         while (!(str[i] >= '0' && str[i] <= '9') && str[i] != '+' && str[i] != '-' && str[i] != '\0')
             i++;
         if (str[i] == '\0')
             return (0);
-		error = valid_sign(&str[i]);
-		if (error == 1)
+		if (valid_sign(&str[i]) == 1)
 			return (1);
 		numstr = fill_stacka(str, i, head);
 		if (numstr == NULL)
@@ -106,19 +102,20 @@ int extract_numbers(char *str, t_list **head)
 	return (0);
 }
 
-int number_to_stack( char **argv, t_list **head)
+int number_to_stack(int argc, char **argv, t_list **head)
 {
 	int index;
 	int	error;
 
 	index = 1;
+	// (void)argc;
     while (argv[index])
     {
 		error = extract_numbers(argv[index], head);
 		if (error == 1)
 		return (1);
         index++;
-		if (argv[index] == NULL)
+		if (argv[index] == NULL && index < (argc - 1))
 			return (1);
     }
     return (0);
