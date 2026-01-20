@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:47:04 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 02:30:29 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ void	tester(t_list **heada, t_list **headb);
 /*                         PARSING                                     */
 /***********************************************************************/
 void    printerror(void);
-int     isalphabet(char **arguments);
+int	digit_or_space(char **str, int argc);
 void	fillstacka(long number, t_list *head);
 int     number_to_stack( char **argv, t_list **head);
 int     extract_numbers(char *str, t_list **head);
-int     parse(char **argv, t_list **heada);
 int     ft_free(char *tab);
 void    clearlist(t_list **head);
 int     end_number(char *str, int i);
@@ -45,6 +44,10 @@ int     is_int_minmax(char *numstr);
 int     is_duplicated(t_list **head);
 int     valid_sign(char *str);
 char    *fill_stacka(char *str, int i, t_list **head);
+int     is_number(char *str);
+int	is_empty(char *str);
+int	parse(int argc, char **argv, t_list **heada);
+
 
 
 

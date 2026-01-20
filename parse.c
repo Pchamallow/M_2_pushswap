@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 01:04:47 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 03:27:30 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,28 @@ void	printerror(void)
 	ft_printf("%s\n", "Error");
 }
 
-int	isalphabet(char **arguments)
+int	digit_or_space(char **str, int argc)
 {
 	int	index;
 	int i;
 
+	(void)argc;
 	index = 1;
-	if (!arguments)
+	if (!str)
 		return (1);
-	while (arguments[index])
+	while (str[index])
 	{
 		i = 0;
-		while (arguments[index][i])
+		while (str[index][i])
 		{
-			if (ft_isalpha(arguments[index][i]))
+			if (!(str[index][i] >= '0' && str[index][i] <= '9') && str[index][i] != ' ')
 				return (1);
 			i++;
 		}
 		index++;
 	}
+	if (str == NULL)
+		return (1);
 	return (0);
 }
 
@@ -93,7 +96,7 @@ int	is_duplicated(t_list **head)
 	}
 	return (0);
 }
-
+/*sign = before: not a digit  after: a digit */
 int	valid_sign(char *str)
 {
 	int	i;
@@ -101,6 +104,8 @@ int	valid_sign(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
+		if (str[i - 1] >= '0' && str[i - 1] <= '9')
+			return (1);
 		if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
 			return (1);
 	}
@@ -109,13 +114,15 @@ int	valid_sign(char *str)
 
 /************** PARSING ********************/
 // error if : isalphabet, INT_max/INT_min, already_sort, double number)
-int	parse(char **argv, t_list **heada)
+int	parse(int argc, char **argv, t_list **heada)
 {
 	int	in_stack = 0;
+	int error = 0;
 	
-	in_stack = number_to_stack(argv, heada);
-	if (!argv || !argv[2] || isalphabet(argv) == 1)
+	error = digit_or_space(argv, argc);
+	if (!argv || error == 1)
 		return (1);
+	in_stack = number_to_stack(argv, heada);
 	if (in_stack == 1 || is_duplicated(heada) == 1)
 	{
 		ft_lstclear(heada);

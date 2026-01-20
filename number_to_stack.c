@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 01:16:57 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/20 03:29:50 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,42 @@ char *fill_stacka(char *str, int i, t_list **head)
 	else
 		return (NULL);
 }
+
+int	is_empty(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
+		return(1);
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 	
 int extract_numbers(char *str, t_list **head)
 {
-    int i;
-	int sign_error;
-    char *numstr;
-	i = 0;
+    int		i;
+	int		error;
+    char	*numstr;
 
+	i = 0;
+	error = 0;
     while (str[i])
     {
+		error = is_empty(str);
+		if (error == 1)
+			return (1);
         while (!(str[i] >= '0' && str[i] <= '9') && str[i] != '+' && str[i] != '-' && str[i] != '\0')
             i++;
         if (str[i] == '\0')
             return (0);
-		sign_error = valid_sign(&str[i]);
-		if (sign_error == 1)
+		error = valid_sign(&str[i]);
+		if (error == 1)
 			return (1);
 		numstr = fill_stacka(str, i, head);
 		if (numstr == NULL)
@@ -96,8 +116,10 @@ int number_to_stack( char **argv, t_list **head)
     {
 		error = extract_numbers(argv[index], head);
 		if (error == 1)
-			return (1);
+		return (1);
         index++;
+		if (argv[index] == NULL)
+			return (1);
     }
     return (0);
 }
