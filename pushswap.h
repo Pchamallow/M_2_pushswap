@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 23:20:16 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/21 23:53:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void	pushb(t_list **heada, t_list **headb);
 /***********************************************************************/
 void    algo(t_list **heada);
 void    three_nb(t_list **head);
+int     ft_min(t_list *head);
+int     ft_max(t_list *head);
+
+
 
 
 
