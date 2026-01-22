@@ -6,15 +6,12 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 04:37:06 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 06:14:12 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 07:23:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include "ft_printf/ft_printf.h"
-
-//min, max, checksorted, find index
-
 
 int     ft_min(t_list *head)
 {
@@ -83,30 +80,6 @@ void    sort_three(t_list **head)
     }
 }
 
-// a mettre dans une fonction qui push dans 3, 
-// tant qu il n y  apas 3 nb restant
-// envoyer sil y a 4 et 5 chiffres (trier par trois puis 
-// mettre en fonction du necessaire)
-// void   three_nb(t_list **head)
-// {
-//     t_list *first;
-//     t_list *second;
-//     t_list *third;
-
-//     first = *head;
-//     second = (*head)->next;
-//     third = (*head)->next->next;
-//     if (first > second)
-//     {
-//         swap(head, 'a');
-//         if (third < second)
-//             reverse_rotate(head, 'a');
-//         else if (third < first)
-//             ;
-//     }
-// }
-
-
 int target_index_a(t_list *head_a, int nbr_a)
 {
     t_list  *current;
@@ -129,19 +102,19 @@ int target_index_a(t_list *head_a, int nbr_a)
 	return (i);
 }
 
-int target_index_b(t_list *head_b, int nbr_a)
+int target_index(t_list *head_b, int nbr)
 {
     t_list  *current;
     int     i;
 
-    if (nbr_a > head_b->content && nbr_a < ft_lstlast(head_b)->content)
+    if (nbr > head_b->content && nbr < ft_lstlast(head_b)->content)
         i = 0;
-    else if (nbr_a > ft_max(head_b) || nbr_a < ft_min(head_b))
+    else if (nbr > ft_max(head_b) || nbr < ft_min(head_b))
         i = find_index(head_b, ft_max(head_b));
     else
 	{
 		current = head_b->next;
-		while (nbr_a > head_b->content || nbr_a < current->content)
+		while (nbr > head_b->content || nbr < current->content)
 		{
 			head_b = head_b->next;
 			current = head_b->next;
@@ -169,10 +142,10 @@ int better_case(t_list *head_a, t_list *head_b, int nbr)
     int rrarb;
     int min_cost;
 
-    min_cost = case_rarb(head_a, b, nbr);
-    rarrb = case_rarrb(head_a, b, nbr);
-    rrr = case_rrr(head_a, b, nbr);
-    rrarb = case_rrarb(head_a, b, nbr);
+    min_cost = case_rarb(head_a, head_b, nbr);
+    rarrb = case_rarrb(head_a, head_b, nbr);
+    rrr = case_rrr(head_a, head_b, nbr);
+    rrarb = case_rrarb(head_a, head_b, nbr);
     if (rarrb < min_cost)
         min_cost = rarrb;
     if (rrr < min_cost)
@@ -183,7 +156,7 @@ int better_case(t_list *head_a, t_list *head_b, int nbr)
     return (min_cost);
 }
 
-int nbr_less_cost(t_list *head, t_list *head_b)
+int nbr_less_cost(t_list *head_a, t_list *head_b)
 {
     t_list  *current;
     t_list  *best;
@@ -205,66 +178,67 @@ int nbr_less_cost(t_list *head, t_list *head_b)
     return (best->content);
 }
 
-
-
-
-// void    sort_until_three(t_list **head_a, t_list **head_b)
-// {
-    //     int i;
-    
-    //     while (ft_lstsize(*head_a) > 3 && !is_sorted(*head_a))
-    //     {
-        //         tmp = *head_a;
-        //         i = 
-        //     }
-        // }
 void    sort_nbr(t_list **head_a, t_list **head_b)
 {
-    t_list *best;
+    int best;
 
-    while (ft_lstsize(b) > 0)
+    while (ft_lstsize(*head_b) > 0)
     {
         best = nbr_less_cost(*head_a, *head_b);
-        exec_case(a, b, best->content);
+        put_best(head_a, head_b, best);
     }
-            
 }
 
 //appliquer le nbr avec le moindre cout puis le push
-int len_a;
-int len_b;
-len_a = ft_lstsize(head_a);
-len_b = ft_lstsize(head_b);
-if (find_index(head_a, best) <= len_a / 2 && traget_index <= len_b / 2)
-    apply_rr(head_a, head_b);
-if (find_index(head_a, best) <= len_a / 2 && traget_index >= len_b / 2)
-    apply_rarrb(head_a, head_b);
-if (find_index(head_a, best) >= len_a / 2 && traget_index <= len_b / 2)
-    apply_rrarb(head_a, head_b);
-if (find_index(head_a, best) >= len_a / 2 && traget_index >= len_b / 2)
-    apply_rrr(head_a, head_b);
-
-
-
-void    sort_two_to_five(t_list **head_a, t_list **head_b)
+void put_best(t_list **head_a, t_list **head_b, int nbr)
 {
+    int index_a;
+    int target;
     int len_a;
+    int len_b;
     
     len_a = ft_lstsize(*head_a);
-    if (len_a == 2)
+    len_b = ft_lstsize(*head_b);
+    index_a = find_index(*head_a, nbr);
+	target = target_index(*head_b, nbr);
+    if (index_a <= len_a/2 && target <= len_b/2)
+        apply_rr(head_a, head_b, nbr);
+    else if (index_a <= len_a/2 && target > len_b/2)
+        apply_rarrb(head_a, head_b, nbr);
+    else if (index_a > len_a/2 && target > len_b/2)
+    //comment foinctionne le printf ici pour avoir un rrr
+        apply_rrarrb(head_a, head_b, nbr);
+    else
+        apply_rrarb(head_a, head_b, nbr);
+    pusha(head_a, head_b);
+}
+
+void sort_two_to_five(t_list **head_a, t_list **head_b)
+{
+    int len_a;
+
+    len_a = ft_lstsize(*head_a);
+    if (len_a == 2 && (*head_a)->content > (*head_a)->next->content)
         swap(head_a, 'a');
-    if (len_a == 3)
+    else if (len_a == 3)
         sort_three(head_a);
-    while (len_a > 3)
+    else
     {
-        if (find_index(head_a) == 0)
-            pushb(head_a, head_b);
-        else if (find_index(head_a, ft_min(head_a)) <= ft_lstsize(head_a) / 2)
-            ra(head_a);
-        else
-            rra(head_a);
+        while (ft_lstsize(*head_a) > 3)
+        {
+            if (find_index(*head_a, ft_min(*head_a)) == 0)
+                pushb(head_a, head_b);
+            else if (find_index(*head_a, ft_min(*head_a)) <= ft_lstsize(*head_a)/2)
+                rotate(head_a, 'a');
+            else
+                reverse_rotate(head_a, 'a');
+        }
+        sort_three(head_a);
+        while (ft_lstsize(*head_b) > 0)
+            pusha(head_a, head_b);
     }
 }
+
 
 // verifier si je dois creer la  stack b meme si la len est de 2 ou pas
 void    algo(t_list **head_a)
@@ -272,21 +246,11 @@ void    algo(t_list **head_a)
     t_list  *head_b;
 
     head_b = NULL;
-    if (ft_lstsize(head_a) <= 5)
-        sort_two_to_five(head_a, head_b;);
+    if (ft_lstsize(*head_a) <= 5)
+        sort_two_to_five(head_a, &head_b);
     else
-        sort_nbr(head_a, head_b);
-    // else if (len_a == 3)
-    // {
-    //     three_nb(&head_a);
-    // }
-    // ft_min(*head_a);
-    // ft_max(*head_a);
-    head_b = ft_lstnew(15);
-    // pushb(head_a, &head_b);
-    // pushb(head_a, &head_b);
-    ft_printf("index : %d\n", find_index_b(head_b, (*head_a)->content));
-    // sort_three(head_a);
+        sort_nbr(head_a, &head_b);
+    ft_printf("index : %d\n", find_index(head_b, (*head_a)->content));
     if (is_sorted(head_a) == 1)
         ft_printf("sorted\n");
 }

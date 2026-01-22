@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:37:05 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 06:10:35 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 07:16:03 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,30 @@ void	rotate(t_list	**head, char c)
 		ft_printf("%s", "rb\n");
 }
 
-void    apply_rr(t_list **heada, t_list **headb)
+void    apply_rr(t_list **head_a, t_list **head_b, int nbr)
 {
-	rotate(heada, 'c');
-	rotate(headb, 'c');
-	ft_printf("%s", "rr\n");
+	int index_a;
+    int target;
+
+	index_a = find_index(*head_a, nbr);
+	target = target_index(*head_b, nbr);
+	while (index_a > 0 && target > 0)
+    {
+        rotate(head_a, 'c'); 
+		rotate(head_b, 'c');
+		ft_printf("%s", "rr\n");
+		index_a--; 
+		target--;  // rotations simultanées
+    }
+    while (index_a > 0)
+	{
+		rotate(head_a, 'a');
+		index_a--;
+	}
+    while (target > 0)
+	{
+		rotate(head_b, 'b');
+		target--;
+	}
 }
 

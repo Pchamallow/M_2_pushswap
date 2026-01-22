@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 03:32:44 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 07:22:46 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,24 @@ int     ft_max(t_list *head);
 int     find_index(t_list *head, int i);
 void    sort_three(t_list **head);
 
-int find_index_b(t_list *head_b, int nbr_a);
+int cost(int len, int index, int reverse);
+int target_index(t_list *head_b, int nbr);
+int find_index(t_list *head_b, int nbr);
+void put_best(t_list **head_a, t_list **head_b, int nbr);
 
 
 
+int case_rarb(t_list *head_a, t_list *head_b, int nbr);
+int case_rrr(t_list *head_a, t_list *head_b, int nbr);
+int case_rarrb(t_list *head_a, t_list *head_b, int nbr);
+int case_rrarb(t_list *head_a, t_list *head_b, int nbr);
 
 
+
+void    apply_rr(t_list **head_a, t_list **head_b, int nbr);
+void    apply_rrarrb(t_list **head_a, t_list **head_b, int nbr);
+void    apply_rrarb(t_list **head_a, t_list **head_b, int nbr);
+void    apply_rarrb(t_list **head_a, t_list **head_b, int nbr);
 
 
 
