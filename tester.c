@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/17 15:20:49 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 05:52:27 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ void	printlist(t_list *head)
 
 void	push(t_list **source, t_list **target)
 {
-	t_list *first = *source;
-	t_list	*oldfirst = *target;
+	t_list *tmp;
 
-	if (!source)
-		return ;
-	first->next = oldfirst;
-	*target = first;
-}
+    if (*source == NULL)
+        return;
+
+    tmp = *source;
+    *source = (*source)->next;
+    tmp->next = *target;
+    *target = tmp;       
 
 void	pusha(t_list **heada, t_list **headb)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverserotate.c                                    :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:38:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 23:16:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 06:12:03 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,21 @@ void	reverse_rotate(t_list **head, char c)
 		ft_printf("%s", "rrb\n");
 }
 
-void    reverse_rotateab(t_list **heada, t_list **headb)
+void    apply_rrr(t_list **heada, t_list **headb)
 {
 	reverse_rotate(heada, 'c');
 	reverse_rotate(headb, 'c');
 	ft_printf("%s", "rrr\n");
+}
+
+void    apply_rarrb(t_list **heada, t_list **headb)
+{
+	rotate(heada, 'a');
+	reverse_rotate(headb, 'b');
+}
+
+void    apply_rbrra(t_list **heada, t_list **headb)
+{
+	rotate(head_b, 'b');
+	reverse_rotate(head_a, 'a');
 }

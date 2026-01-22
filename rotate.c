@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:37:05 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 00:47:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 06:10:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	rotate(t_list	**head, char c)
 		ft_printf("%s", "rb\n");
 }
 
-void    rotateab(t_list **heada, t_list **headb)
+void    apply_rr(t_list **heada, t_list **headb)
 {
 	rotate(heada, 'c');
 	rotate(headb, 'c');
 	ft_printf("%s", "rr\n");
 }
+

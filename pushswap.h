@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/21 23:53:47 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/22 03:32:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,12 @@ void    algo(t_list **heada);
 void    three_nb(t_list **head);
 int     ft_min(t_list *head);
 int     ft_max(t_list *head);
+int     find_index(t_list *head, int i);
+void    sort_three(t_list **head);
+
+int find_index_b(t_list *head_b, int nbr_a);
+
+
 
 
 
