@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 18:40:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:15:53 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,58 @@ void    sort_three(t_list **head)
         swap(head, 'a');
 }
 
+void	b_to_a_content(t_list **a, t_list **b)
+{
+	while ((*b)->content < (*a)->content)
+		push(b, a, 'a');
+	if ((*b)->content == ft_max(*b) && (*b)->content < ft_lstlast(*a)->content)
+	{
+		reverse_rotate(a, 'a');
+		push(b, a, 'a');
+		while ((*a)->content != ft_min(*a))
+			reverse_rotate(a, 'a');
+	}
+}
+
+void	sort_four(t_list **a, t_list **b)
+{
+	while (ft_lstsize(*a) > 3)
+		push(a, b, 'b');
+	while (!is_sorted(a))
+		sort_three(a);
+	print_step(*a, "sort three");
+	push(b, a, 'a');
+}
+
+void	sort_five(t_list **a, t_list **b)
+{
+	while (ft_lstsize(*a) > 3)
+		push(a, b, 'b');
+	while (!is_sorted(a))
+		sort_three(a);
+	print_step(*a, "sort three");
+	b_to_a_content(a, b);
+}
+
 void sort_two_to_five(t_list **a, t_list **b)
 {
     if (ft_lstsize(*a)== 2 && (*a)->content > (*a)->next->content)
         swap(a, 'a');
     else if (ft_lstsize(*a) == 3)
         sort_three(a);
-	else if (ft_lstsize(*a) > 3)
-	{
-		while (ft_lstsize(*a) > 3)
-			push(a, b, 'b');
-		if (!is_sorted(a))
-			sort_three(a);
-		b_to_a(a, b);
-	}
+	else if (ft_lstsize(*a) == 4)
+		sort_four(a, b);
+	else if (ft_lstsize(*a) == 5)
+		sort_five(a, b);
+	// {
+	// 	while (ft_lstsize(*a) > 3)
+	// 		push(a, b, 'b');
+	// 	while (!is_sorted(a))
+	// 		sort_three(a);
+	// 	print_step(*a, "sort three");
+	// 	// b_to_a_index(a, b);
+	// 	b_to_a_content(a, b);
+	// }
 }
 
 void	algorithm(t_list **a, t_list **b)
@@ -106,6 +144,8 @@ void	algorithm(t_list **a, t_list **b)
 	else
 		apply_butterfly(a, b);
 	print_step(*a, "Result : ");
+	if (is_sorted(a))
+		ft_printf("\nSORTED\n\n");
 	ft_lstclear(a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 07:54:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 18:38:07 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:51:43 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int max_index(t_list *b)
     return (index);
 }
 
-void b_to_a(t_list **a, t_list **b)
+void b_to_a_index(t_list **a, t_list **b)
 {
     int index_max;
     int size;
@@ -133,7 +133,7 @@ void apply_butterfly(t_list **a, t_list **b)
         else
             rotate(a, 'a');
     }
-    b_to_a(a, b);
+    b_to_a_index(a, b);
 }
 
 

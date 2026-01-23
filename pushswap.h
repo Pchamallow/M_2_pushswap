@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 18:37:11 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:16:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,15 @@ void	push(t_list **source, t_list **target, char c);
 int     set_chunk(int size);
 void    apply_butterfly(t_list **a, t_list **b);
 void    fill_index(t_list *a);
-void    b_to_a(t_list **a, t_list **b);
+void    b_to_a_index(t_list **a, t_list **b);
+void	b_to_a_content(t_list **a, t_list **b);
 int     max_index(t_list *b);
 void    butterfly(t_list **a);
 void	algorithm(t_list **a, t_list **b);
 void sort_two_to_five(t_list **a, t_list **b);
+void	sort_four(t_list **a, t_list **b);
+void	sort_five(t_list **a, t_list **b);
+
 
 
 void    three_nb(t_list **head);
