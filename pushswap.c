@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:24:42 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 22:35:30 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,28 @@ int	ft_max(t_list *head)
 	{
 		if (i < head->content)
 			i = head->content;
-        head = head->next;
-    }
-    return (i);
+		head = head->next;
+	}
+	return (i);
 }
 
-void    sort_three(t_list **head)
+void	sort_three(t_list **head)
 {
-    if (ft_min(*head) == (*head)->content)
-    {
-        reverse_rotate(head, 'a');
-        swap(head, 'a');
-    }
-    else if (ft_max(*head) == (*head)->content)
-    {
-        rotate(head, 'a');
-        if (!is_sorted(head))
-            swap(head, 'a');
-    }
-    else if (find_index(*head, ft_max(*head)) == 1)
-        reverse_rotate(head, 'a');
-    else
-        swap(head, 'a');
+	if (ft_min(*head) == (*head)->content)
+	{
+		reverse_rotate(head, 'a');
+		swap(head, 'a');
+	}
+	else if (ft_max(*head) == (*head)->content)
+	{
+		rotate(head, 'a');
+		if (!is_sorted(head))
+			swap(head, 'a');
+	}
+	else if (find_index(*head, ft_max(*head)) == 1)
+		reverse_rotate(head, 'a');
+	else
+		swap(head, 'a');
 }
 
 void	b_to_a_content(t_list **a, t_list **b)
@@ -122,10 +122,10 @@ void	sort_four_to_five(t_list **a, t_list **b)
 
 void sort_little_stack(t_list **a, t_list **b)
 {
-    if (ft_lstsize(*a)== 2)
-        swap(a, 'a');
-    else if (ft_lstsize(*a) == 3)
-        sort_three(a);
+	if (ft_lstsize(*a) == 2)
+		swap(a, 'a');
+	else if (ft_lstsize(*a) == 3)
+		sort_three(a);
 	else if (ft_lstsize(*a) >= 4)
 		sort_four_to_five(a, b);
 }
@@ -134,7 +134,7 @@ void	algorithm(t_list **a, t_list **b)
 {
 	fill_index(*a);
 	if (ft_lstsize(*a) <= 5)
-	    sort_little_stack(a, b);
+		sort_little_stack(a, b);
 	else
 	{
 		apply_butterfly(a, b);
@@ -149,7 +149,7 @@ int	only_null(t_list *a)
 		while (a)
 		{
 			if (a->content != 0)
-			return (0);
+				return (0);
 			a = a->next;
 		}
 		return (1);
@@ -157,16 +157,35 @@ int	only_null(t_list *a)
 	return (0);
 }
 
+void	printlist(t_list *head)
+{
+	t_list	*current = head;
+
+	while (current != NULL)
+	{
+		ft_printf("%d\n", current->content);
+		current = current->next;
+	}
+}
+
+void    print_step(t_list *head, char *str)
+{
+	ft_printf("%s\n", str);
+	printlist(head);
+}
+
 int main(int argc, char **argv)
 {
-	t_list *a;
-	t_list *b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;
 	if (argv[1] == NULL)
-	return (0);
-	if (is_number(argv[1]) == 1  || ft_atol(argv[1]) > INT_MAX || ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &a) == 1 || only_null(a) == 1)
+		return (0);
+	if (is_number(argv[1]) == 1 || ft_atol(argv[1]) > INT_MAX
+		|| ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &a) == 1
+		|| only_null(a) == 1)
 	{
 		ft_lstclear(&a);
 		write(2, "Error\n", 6);
@@ -178,7 +197,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	else
-	algorithm(&a, &b);
+		algorithm(&a, &b);
 	return (0);
 	// print_step(*a, "Result : ");
 	// if (is_sorted(a))
