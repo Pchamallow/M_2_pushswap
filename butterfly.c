@@ -6,21 +6,21 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 07:54:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 18:51:43 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 22:00:16 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include "ft_printf/ft_printf.h"
 
-int max_index(t_list *b)
+int	max_index(t_list *b)
 {
     int max;
     int index;
     int i;
 
-    max = b->index;
-    index = 0;
+	max = b->index;
+	index = 0;
     i = 0;
     while (b)
     {
@@ -59,11 +59,11 @@ void b_to_a_index(t_list **a, t_list **b)
     }
 }
 
-int find_index(t_list *head, int nbr)
+int	find_index(t_list *head, int nbr)
 {
-    int i;
+	int	i;
 
-    i = 0;
+	i = 0;
     while (head)
     {
         if (nbr == head->index)
@@ -86,7 +86,6 @@ void    put_index(t_list *stack)
     }
 }
 
-// le plus petit = 0, le plus grand = size - 1
 void fill_index(t_list *a)
 {
     t_list *tmp;
@@ -135,18 +134,3 @@ void apply_butterfly(t_list **a, t_list **b)
     }
     b_to_a_index(a, b);
 }
-
-
-
-// void    butterfly(t_list **a)
-// {
-//     t_list *b = NULL;
-//     int     chunk;
-
-//     print_step(*a, "Butterfly : ");
-// 	ft_printf("\n");
-//     chunk = set_chunk(ft_lstsize(*a));
-//     // b = ft_lstnew(0);
-//     apply_butterfly(*a, b, chunk);
-//     // b_to_a(a, &b);
-// }
