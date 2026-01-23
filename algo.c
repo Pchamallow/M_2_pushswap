@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 04:37:06 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 07:23:12 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 01:08:58 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,10 @@ void    sort_three(t_list **head)
         if (!is_sorted(head))
             swap(head, 'a');
     }
+    else if (find_index(*head, ft_max(*head)) == 1)
+        reverse_rotate(head, 'a');
     else
-    {
-        if (find_index(*head, ft_max(*head)) == 1)
-            reverse_rotate(head, 'a');
-        else
-            swap(head, 'a');
-    }
+        swap(head, 'a');
 }
 
 int target_index_a(t_list *head_a, int nbr_a)
@@ -85,6 +82,7 @@ int target_index_a(t_list *head_a, int nbr_a)
     t_list  *current;
     int     i;
 
+    i = 0;
     if (nbr_a > head_a->content && nbr_a < ft_lstlast(head_a)->content)
         i = 0;
     else if (nbr_a > ft_max(head_a) || nbr_a < ft_min(head_a))
@@ -107,6 +105,7 @@ int target_index(t_list *head_b, int nbr)
     t_list  *current;
     int     i;
 
+    i = 0;
     if (nbr > head_b->content && nbr < ft_lstlast(head_b)->content)
         i = 0;
     else if (nbr > ft_max(head_b) || nbr < ft_min(head_b))
@@ -227,13 +226,14 @@ void sort_two_to_five(t_list **head_a, t_list **head_b)
         while (ft_lstsize(*head_a) > 3)
         {
             if (find_index(*head_a, ft_min(*head_a)) == 0)
-                pushb(head_a, head_b);
+            pushb(head_a, head_b);
             else if (find_index(*head_a, ft_min(*head_a)) <= ft_lstsize(*head_a)/2)
-                rotate(head_a, 'a');
+            rotate(head_a, 'a');
             else
-                reverse_rotate(head_a, 'a');
+            reverse_rotate(head_a, 'a');
         }
         sort_three(head_a);
+        // printlist(*head_b);
         while (ft_lstsize(*head_b) > 0)
             pusha(head_a, head_b);
     }
