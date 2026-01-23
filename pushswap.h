@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 21:11:32 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 23:04:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define PUSHSWAP_H
 
 # include "structures.h"
-# include "libft/libft.h"
+// # include "libft/libft.h"
 # include "unistd.h"
-
-
 
 /***********************************************************************/
 /*                         PARSING                                     */
@@ -47,8 +45,6 @@ int     is_empty(char *str);
 int     parse(int argc, char **argv, t_list **heada);
 int	security(int argc, char **argv, t_list *a);
 
-
-
 /***********************************************************************/
 /*                         MOVES                                       */
 /***********************************************************************/
@@ -66,7 +62,6 @@ void    reverse_rotateab(t_list **heada, t_list **headb);
 
 // PUSH
 void	push(t_list **source, t_list **target, char c);
-
 
 /***********************************************************************/
 /*                         ALGO                                        */

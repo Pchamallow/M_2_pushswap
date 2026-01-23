@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/23 17:45:36 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/23 23:14:00 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
 # INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
 NAME = push_swap
-
 
 #Colors
 GREEN='\033[0;32m'
