@@ -6,51 +6,52 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/23 23:14:00 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/23 23:36:30 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CCC = cc
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
-# INCLUDES = -Iincludes -Ilibft/includes -Iprintf/includes
+
+# Includes 🏗️
+INCLUDES = -Iincludes \
+           -Iincludes/libft/ \
+           -Iincludes/ft_printf/
+
 NAME = push_swap
 
-#Colors
+#Colors 🎨
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-# Libft Folder
-DIR_LIBFT= ./libft
-LIB = libft/libft.a
-LDFLAGS = -L$(DIR_LIBFT)
-LDLIBS = -lft
+# Libft Folder 📚
+DIR_LIBFT = includes/libft
+LIB = includes/libft/libft.a
 
-# Printf Folder
-DIR_PRINTF = ./ft_printf
-PRI = ft_printf/libftprintf.a
-LDFLAGSPRI = -L$(DIR_PRINTF)
-LDLIBSPRI = -lft
+# Printf Folder 🖨️
+DIR_PRINTF = includes/ft_printf
+PRI = includes/ft_printf/libftprintf.a
 
-
-# All SRC
-SRCS = pushswap.c\
-	   tester.c\
-	   parse.c\
-	   swap.c\
-	   butterfly.c\
-	   number_to_stack.c\
-	   rotate.c\
-	   reverse_rotate.c\
+# All SRC 📂
+SRCS = src/pushswap.c\
+       src/tester.c\
+       src/parse.c\
+       src/swap.c\
+       src/butterfly.c\
+       src/number_to_stack.c\
+       src/rotate.c\
+       src/reverse_rotate.c
 # 	   ft_fillstka.c\
 
-OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
+OBJS = $(SRCS:src/%.c=$(BUILD_DIR)/%.o)
 
 
 
-# Commands
+# ================= COMMANDS ================= #
+
 all: $(LIB) $(PRI) $(NAME)
 	@echo $(GREEN)"💫 All compiled 💫\n"$(NC)
 
@@ -61,34 +62,34 @@ $(PRI):
 	@$(MAKE) -C $(DIR_PRINTF) -s
 
 $(NAME): $(BUILD_DIR) $(OBJS) $(LIB) $(PRI)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(PRI) -o $(NAME)
-	@echo $(GREEN)"✨ Push_swap build created, link with Printf and Libft ✨"$(NC)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB) $(PRI) -o $(NAME)
+	@echo $(GREEN)"\n✨ Push_swap build created, linked with Printf and Libft ✨\n"$(NC)
 
 $(BUILD_DIR):
 	@mkdir -p $@
 
-# règle générique .c -> .o
-$(BUILD_DIR)/%.o: %.c
+# règle générique .c -> .o 🔨
+$(BUILD_DIR)/%.o: src/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-# 	@echo ${GREEN}"✨ Pushswap build created ✨"${NC}
 
 clean:
-	make -C $(DIR_LIBFT) clean -s
-	make -C $(DIR_PRINTF) clean -s
+	@make -C $(DIR_LIBFT) clean -s
+	@make -C $(DIR_PRINTF) clean -s
 	@rm -rf $(BUILD_DIR)
-	@echo ${GREEN}"Pushswap build is clean.. 🧹"${NC}
+	@echo $(GREEN)"Pushswap build is clean.. 🧹"$(NC)
 
 fclean: clean
-	make -C $(DIR_LIBFT) fclean -s
-	make -C $(DIR_PRINTF) fclean -s
-	@rm -f $(NAME) 
-	@echo ${GREEN}"Pushswap library is clean.. 🧹"${NC}
+	@make -C $(DIR_LIBFT) fclean -s
+	@make -C $(DIR_PRINTF) fclean -s
+	@rm -f $(NAME)
+	@echo $(GREEN)"Pushswap library is clean.. 🧹"$(NC)
 
 re: fclean all
 
 
-#ARCHIVES
+# ================= Archives 📦 ================= #
+
 zip:
 	@zip DATE_HOUR.zip *
 	@mv DATE_HOUR.zip ${DATE}.zip
