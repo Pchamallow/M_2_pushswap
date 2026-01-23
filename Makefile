@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/23 23:36:30 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/24 00:00:21 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ $(PRI):
 $(NAME): $(BUILD_DIR) $(OBJS) $(LIB) $(PRI)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB) $(PRI) -o $(NAME)
 	@echo $(GREEN)"\n✨ Push_swap build created, linked with Printf and Libft ✨\n"$(NC)
+
 
 $(BUILD_DIR):
 	@mkdir -p $@
