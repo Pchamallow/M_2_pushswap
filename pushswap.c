@@ -6,25 +6,25 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 21:55:01 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 22:24:42 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
-#include "unistd.h"
 
 int	is_number(char *str)
 {
 	int	sign_ok;
-	int i;
+	int	i;
 
 	i = 0;
 	sign_ok = 0;
 	while (str[i])
 	{
-		if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ' && str[i] != '+' && str[i] != '-')
+		if (!(str[i] >= '0' && str[i] <= '9')
+			&& str[i] != ' ' && str[i] != '+' && str[i] != '-')
 			return (1);
 		sign_ok = valid_sign(&str[i]);
 		if (sign_ok == 1)
@@ -34,29 +34,29 @@ int	is_number(char *str)
 	return (0);
 }
 
-int     ft_min(t_list *head)
+int	ft_min(t_list *head)
 {
-    int i;
+	int	i;
 
-    i = head->content;
-    while (head)
-    {
-        if (i > head->content)
-        i = head->content;
-        head = head->next;
-    }
-    return (i);
+	i = head->content;
+	while (head)
+	{
+		if (i > head->content)
+			i = head->content;
+		head = head->next;
+	}
+	return (i);
 }
 
-int     ft_max(t_list *head)
+int	ft_max(t_list *head)
 {
-    int i;
+	int	i;
 
-    i = head->content;
-    while (head)
-    {
-        if (i < head->content)
-            i = head->content;
+	i = head->content;
+	while (head)
+	{
+		if (i < head->content)
+			i = head->content;
         head = head->next;
     }
     return (i);
@@ -100,7 +100,7 @@ void	b_to_a_content(t_list **a, t_list **b)
 	while ((*b)->content > (*a)->content)
 	{
 		rotate(a, 'a');
-		count++;		
+		count++;
 	}
 	push(b, a, 'a');
 	while (count > 0)
@@ -141,7 +141,7 @@ void	algorithm(t_list **a, t_list **b)
 		ft_lstclear(a);
 	}
 }
-	
+
 int	only_null(t_list *a)
 {
 	if (ft_lstsize(a) > 1)
@@ -150,21 +150,21 @@ int	only_null(t_list *a)
 		{
 			if (a->content != 0)
 			return (0);
-			a = a->next;	
+			a = a->next;
 		}
 		return (1);
 	}
 	return (0);
 }
-	
+
 int main(int argc, char **argv)
 {
 	t_list *a;
 	t_list *b;
-	
+
 	a = NULL;
 	b = NULL;
-	if (argv[1] == NULL) 
+	if (argv[1] == NULL)
 	return (0);
 	if (is_number(argv[1]) == 1  || ft_atol(argv[1]) > INT_MAX || ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &a) == 1 || only_null(a) == 1)
 	{
@@ -184,4 +184,4 @@ int main(int argc, char **argv)
 	// if (is_sorted(a))
 	// 	// ft_printf("\nSORTED\n\n");
 }
-	
+
