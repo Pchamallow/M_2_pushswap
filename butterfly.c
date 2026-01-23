@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 07:54:27 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 15:46:07 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:38:07 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ void b_to_a(t_list **a, t_list **b)
     {
         size = ft_lstsize(*b);
         index_max = max_index(*b);
-
         if (index_max <= size / 2)
+        {
             while (index_max--)
                 rotate(b, 'b');
+        }
         else
         {
             index_max = size - index_max;

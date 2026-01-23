@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 15:46:38 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 18:37:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char    *fill_stacka(char *str, int i, t_list **head);
 int     is_number(char *str);
 int     is_empty(char *str);
 int     parse(int argc, char **argv, t_list **heada);
+int	security(int argc, char **argv, t_list *a);
+
 
 
 /***********************************************************************/
@@ -75,6 +77,9 @@ void    fill_index(t_list *a);
 void    b_to_a(t_list **a, t_list **b);
 int     max_index(t_list *b);
 void    butterfly(t_list **a);
+void	algorithm(t_list **a, t_list **b);
+void sort_two_to_five(t_list **a, t_list **b);
+
 
 void    three_nb(t_list **head);
 int     ft_min(t_list *head);
