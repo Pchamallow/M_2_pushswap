@@ -16,4 +16,14 @@ display str[index][i]
 display i 
 
 
+display nbr
+display cost_a
+display find_index(head_a, nbr)
+display ft_lstsize(head_b)
+display head_b->content
+display target_index(head_b, nbr)
+
+display head->content
+display nbr
+display i
 

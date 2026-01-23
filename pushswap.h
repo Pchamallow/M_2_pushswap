@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 07:22:46 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 03:16:12 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int cost(int len, int index, int reverse);
 int target_index(t_list *head_b, int nbr);
 int find_index(t_list *head_b, int nbr);
 void put_best(t_list **head_a, t_list **head_b, int nbr);
+void    print_step(t_list *head, char *str);
+
+void b_to_empty(t_list **head_a, t_list **head_b);
 
 
 

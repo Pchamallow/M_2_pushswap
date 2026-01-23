@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:37:05 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 07:16:03 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 03:41:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void    apply_rr(t_list **head_a, t_list **head_b, int nbr)
 		rotate(head_b, 'b');
 		target--;
 	}
+	pusha(head_a, head_b);
 }
 

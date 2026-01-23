@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:38:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/22 07:20:54 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 03:43:32 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void    apply_rrarrb(t_list **head_a, t_list **head_b, int nbr)
 		target++;
 	}
 	ft_printf("%s", "rrr\n");
+	pusha(head_a, head_b);
 }
 
 void    apply_rrarb(t_list **head_a, t_list **head_b, int nbr)
@@ -77,7 +78,7 @@ void    apply_rrarb(t_list **head_a, t_list **head_b, int nbr)
 		reverse_rotate(head_b, 'b');
 		target--;
 	}
-	// ft_printf("%s", "rrr\n");
+	pusha(head_a, head_b);
 }
 
 void    apply_rarrb(t_list **head_a, t_list **head_b, int nbr)
@@ -99,4 +100,5 @@ void    apply_rarrb(t_list **head_a, t_list **head_b, int nbr)
 		reverse_rotate(head_b, 'b');
 		target++;
 	}
+	pusha(head_a, head_b);
 }
