@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 06:30:40 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 15:46:38 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void    swap(t_list **head, char c);
 void    swapab(t_list **heada, t_list **headb);
 
 // ROTATE
-void	rotate(t_list	**head, char c);
+void	rotate(t_list	**stack, char c);
 void    rotateab(t_list **heada, t_list **headb);
 
 // REVERSE ROTATE
@@ -63,15 +63,19 @@ void	reverse_rotate(t_list **head, char c);
 void    reverse_rotateab(t_list **heada, t_list **headb);
 
 // PUSH
-void	push(t_list **source, t_list **target);
-void	pusha(t_list **heada, t_list **headb);
-void	pushb(t_list **heada, t_list **headb);
+void	push(t_list **source, t_list **target, char c);
 
 
 /***********************************************************************/
 /*                         ALGO                                        */
 /***********************************************************************/
-void    algo(t_list **heada);
+int     set_chunk(int size);
+void    apply_butterfly(t_list **a, t_list **b);
+void    fill_index(t_list *a);
+void    b_to_a(t_list **a, t_list **b);
+int     max_index(t_list *b);
+void    butterfly(t_list **a);
+
 void    three_nb(t_list **head);
 int     ft_min(t_list *head);
 int     ft_max(t_list *head);

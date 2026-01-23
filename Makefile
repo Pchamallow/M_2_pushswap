@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/22 07:21:15 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/23 09:53:28 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,10 @@ SRCS = pushswap.c\
 	   tester.c\
 	   parse.c\
 	   swap.c\
-	   algo.c\
+	   butterfly.c\
 	   number_to_stack.c\
 	   rotate.c\
 	   reverse_rotate.c\
-	   cases.c\
 # 	   ft_fillstka.c\
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
