@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 04:37:06 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 04:25:52 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 06:34:53 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,14 +212,6 @@ void    print_step(t_list *head, char *str)
     printlist(head);
 }
 
-// void b_to_empty(t_list **head_a, t_list **head_b)
-// {
-//     int best;
-
-//     best = nbr_less_cost(*head_a, *head_b);
-//     put_best(head_a, head_b, best);
-// }
-
 void sort_two_to_five(t_list **head_a, t_list **head_b)
 {
     int len_a;
@@ -232,7 +224,7 @@ void sort_two_to_five(t_list **head_a, t_list **head_b)
         sort_three(head_a);
     else
     {
-        while (ft_lstsize(*head_a) > 3)
+        while (ft_lstsize(*head_a) > 5)
         {
             if (find_index(*head_a, ft_min(*head_a)) == 0)
             {
@@ -250,30 +242,15 @@ void sort_two_to_five(t_list **head_a, t_list **head_b)
                 print_step(*head_a, "step rr :");
             }
         }
-        // if (!is_sorted(head_a))
-        // {
-        //     sort_three(head_a);
-        //     print_step(*head_a, "step sort_three :");
-        // }
-        // while (is_sorted(head_a) && i < ft_lstsize(*head_b))
-        // {
-        //     b_to_empty(head_a, head_b);
-        //     i++;
-        //     // best = nbr_less_cost(*head_a, *head_b);
-        //     // put_best(head_a, head_b, best);
-        // }
-        // while (ft_lstsize(*head_b) > 0)
-        //     pusha(head_a, head_b);
     }
 }
 
 void    sort_nbr(t_list **head_a, t_list **head_b)
 {
     int best;
-    int len_b;
     int i = 0;
+    int len_b = ft_lstsize(*head_b);
 
-    len_b = ft_lstsize(*head_b);
     print_step(*head_b, "\nBefore sort_nbr :");
     while (i < len_b)
     {
@@ -291,14 +268,13 @@ void    algo(t_list **head_a)
     head_b = NULL;
     print_step(*head_a, "original :");
     ft_printf("\n");
-    while (ft_lstsize(*head_a) > 5)
-        pushb(head_a, &head_b);
     if (ft_lstsize(*head_a) <= 5)
         sort_two_to_five(head_a, &head_b);
-    // if (head_b)
-    // {
+    // while (ft_lstsize(*head_a) > 5)
+    //     pushb(head_a, &head_b);
+    while ((*head_a)->next != NULL)
+        pushb(head_a, &head_b);
     sort_nbr(head_a, &head_b);
-    // }
     // ft_printf("index : %d\n", find_index(head_b, (*head_a)->content));
     if (is_sorted(head_a) == 1)
         ft_printf("sorted\n");
