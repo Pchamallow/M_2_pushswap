@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 03:47:29 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:14:18 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	end_number(char *str, int i)
 
 int	is_int_minmax(char *numstr)
 {
-	if (ft_atol(numstr) >= 2147483647 || ft_atol(numstr) <= -2147483648)
+	if (ft_atol(numstr) > 2147483647 || ft_atol(numstr) < -2147483648)
 	{
 		free(numstr);
 		return (1);
@@ -113,7 +113,7 @@ int number_to_stack(int argc, char **argv, t_list **head)
     {
 		error = extract_numbers(argv[index], head);
 		if (error == 1)
-		return (1);
+			return (1);
         index++;
 		if (argv[index] == NULL && index < (argc - 1))
 			return (1);

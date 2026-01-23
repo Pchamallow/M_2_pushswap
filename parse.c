@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/20 23:10:10 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:11:17 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	printerror(void)
 {
-	ft_printf("%s\n", "Error");
+	write(2, "Error\n", 6);
 }
 
 int	digit_or_space(char **str, int argc)

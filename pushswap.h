@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 19:16:11 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:11:32 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "structures.h"
 # include "libft/libft.h"
-
+# include "unistd.h"
 
 
 
@@ -79,10 +79,9 @@ void	b_to_a_content(t_list **a, t_list **b);
 int     max_index(t_list *b);
 void    butterfly(t_list **a);
 void	algorithm(t_list **a, t_list **b);
-void sort_two_to_five(t_list **a, t_list **b);
-void	sort_four(t_list **a, t_list **b);
-void	sort_five(t_list **a, t_list **b);
-
+void sort_little_stack(t_list **a, t_list **b);
+void	sort_four_to_five(t_list **a, t_list **b);
+int	only_null(t_list *a);
 
 
 void    three_nb(t_list **head);

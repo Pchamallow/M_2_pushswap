@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 11:45:50 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/05 20:21:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:07:51 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 	int		(*ft_format[127])(va_list, int);
 
 	count = 0;
-	fd = 2;
+	fd = 1;
 	if (fd < 0 || !format)
 		return (-1);
 	va_start(args, format);

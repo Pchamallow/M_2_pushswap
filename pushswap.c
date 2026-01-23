@@ -6,13 +6,14 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 19:15:53 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 21:40:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
+#include "unistd.h"
 
 int	is_number(char *str)
 {
@@ -44,7 +45,6 @@ int     ft_min(t_list *head)
         i = head->content;
         head = head->next;
     }
-    // ft_printf("min = %d\n", i);
     return (i);
 }
 
@@ -59,7 +59,6 @@ int     ft_max(t_list *head)
             i = head->content;
         head = head->next;
     }
-    // ft_printf("max = %d\n", i);
     return (i);
 }
 
@@ -84,91 +83,103 @@ void    sort_three(t_list **head)
 
 void	b_to_a_content(t_list **a, t_list **b)
 {
-	while ((*b)->content < (*a)->content)
+	int	count;
+
+	count = 0;
+	if (ft_max(*a) < (*b)->content)
+	{
 		push(b, a, 'a');
-	if ((*b)->content == ft_max(*b) && (*b)->content < ft_lstlast(*a)->content)
+		rotate(a, 'a');
+		return ;
+	}
+	if (ft_min(*a) > (*b)->content)
+	{
+		push(b, a, 'a');
+		return ;
+	}
+	while ((*b)->content > (*a)->content)
+	{
+		rotate(a, 'a');
+		count++;		
+	}
+	push(b, a, 'a');
+	while (count > 0)
 	{
 		reverse_rotate(a, 'a');
-		push(b, a, 'a');
-		while ((*a)->content != ft_min(*a))
-			reverse_rotate(a, 'a');
+		count--;
 	}
 }
 
-void	sort_four(t_list **a, t_list **b)
+void	sort_four_to_five(t_list **a, t_list **b)
 {
 	while (ft_lstsize(*a) > 3)
 		push(a, b, 'b');
 	while (!is_sorted(a))
 		sort_three(a);
-	print_step(*a, "sort three");
-	push(b, a, 'a');
+	while (*b)
+		b_to_a_content(a, b);
 }
 
-void	sort_five(t_list **a, t_list **b)
+void sort_little_stack(t_list **a, t_list **b)
 {
-	while (ft_lstsize(*a) > 3)
-		push(a, b, 'b');
-	while (!is_sorted(a))
-		sort_three(a);
-	print_step(*a, "sort three");
-	b_to_a_content(a, b);
-}
-
-void sort_two_to_five(t_list **a, t_list **b)
-{
-    if (ft_lstsize(*a)== 2 && (*a)->content > (*a)->next->content)
+    if (ft_lstsize(*a)== 2)
         swap(a, 'a');
     else if (ft_lstsize(*a) == 3)
         sort_three(a);
-	else if (ft_lstsize(*a) == 4)
-		sort_four(a, b);
-	else if (ft_lstsize(*a) == 5)
-		sort_five(a, b);
-	// {
-	// 	while (ft_lstsize(*a) > 3)
-	// 		push(a, b, 'b');
-	// 	while (!is_sorted(a))
-	// 		sort_three(a);
-	// 	print_step(*a, "sort three");
-	// 	// b_to_a_index(a, b);
-	// 	b_to_a_content(a, b);
-	// }
+	else if (ft_lstsize(*a) >= 4)
+		sort_four_to_five(a, b);
 }
 
 void	algorithm(t_list **a, t_list **b)
 {
 	fill_index(*a);
 	if (ft_lstsize(*a) <= 5)
-	    sort_two_to_five(a, b);
+	    sort_little_stack(a, b);
 	else
 		apply_butterfly(a, b);
-	print_step(*a, "Result : ");
-	if (is_sorted(a))
-		ft_printf("\nSORTED\n\n");
-	ft_lstclear(a);
+		ft_lstclear(a);
+	}
+	
+int	only_null(t_list *a)
+{
+	if (ft_lstsize(a) > 1)
+	{
+		while (a)
+		{
+			if (a->content != 0)
+			return (0);
+			a = a->next;	
+		}
+		return (1);
+	}
+	return (0);
 }
-
+	
 int main(int argc, char **argv)
 {
 	t_list *a;
 	t_list *b;
-
+	
 	a = NULL;
 	b = NULL;
-	if (argv[1] == NULL)
-		return (0);
-	if (is_number(argv[1]) == 1 || ft_atol(argv[1]) >= INT_MAX || ft_atol(argv[1]) <= INT_MIN || parse(argc, argv, &a) == 1)
+	if (argv[1] == NULL) 
+	return (0);
+	if (is_number(argv[1]) == 1  || ft_atol(argv[1]) > INT_MAX || ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &a) == 1 || only_null(a) == 1)
 	{
-		ft_printf("Error\n");
+		ft_lstclear(&a);
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (is_sorted(&a) == 1)
+	if (ft_lstsize(a) == 1 || is_sorted(&a) == 1)
 	{
 		ft_lstclear(&a);
 		return (0);
 	}
 	else
-		algorithm(&a, &b);
-    return (0);
+	algorithm(&a, &b);
+	return (0);
+	// print_step(*a, "Result : ");
+	// if (is_sorted(a))
+	// 	// ft_printf("\nSORTED\n\n");
 }
+	

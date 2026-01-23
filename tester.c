@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 15:44:51 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:54:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	createstacka(t_list **head, long number)
 {
 	t_list	*new;
 
+	// if (number == 0)
+	// 	return(0);
 	new = ft_lstnew(number);
 	if (!new)
 		return (1);
