@@ -6,12 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:38:08 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:30:48 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:52:02 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include "ft_printf/ft_printf.h"
 
 void	reverse_rotate(t_list **head, char c)
 {
@@ -32,4 +31,3 @@ void	reverse_rotate(t_list **head, char c)
 	if (c == 'b')
 		ft_printf("%s", "rrb\n");
 }
-

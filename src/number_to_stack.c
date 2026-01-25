@@ -6,12 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:22:15 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:51:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include "libft.h"
 
 int	end_number(char *str, int i)
 {
@@ -22,14 +21,20 @@ int	end_number(char *str, int i)
 	return (i);
 }
 
-int	is_int_minmax(char *numstr)
+int	is_empty(char *str)
 {
-	if (ft_atol(numstr) > 2147483647 || ft_atol(numstr) < -2147483648)
-	{
-		free(numstr);
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
 		return (1);
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
 char	*fill_stacka(char *str, int i, t_list **head)
@@ -47,27 +52,11 @@ char	*fill_stacka(char *str, int i, t_list **head)
 		numstr = ft_substr(str, start, (end - start));
 		if (is_int_minmax(numstr) == 1)
 			return (NULL);
-		createstacka(head, ft_atol(numstr));
+		create_stack_a(head, ft_atol(numstr));
 		return (numstr);
 	}
 	else
 		return (NULL);
-}
-
-int	is_empty(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str || !str[i])
-		return (1);
-	while (str[i])
-	{
-		if (str[i] != ' ')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	extract_numbers(char *str, t_list **head)

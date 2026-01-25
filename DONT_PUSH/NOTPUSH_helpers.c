@@ -10,3 +10,9 @@ void	printlist(t_list *head)
 		current = current->next;
 	}
 }
+
+void    print_step(t_list *head, char *str)
+{
+	ft_printf("%s\n", str);
+	printlist(head);
+}

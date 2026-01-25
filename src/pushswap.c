@@ -6,13 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 16:34:13 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:59:32 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-#include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
 
 int	is_number(char *str)
 {
@@ -32,53 +30,6 @@ int	is_number(char *str)
 		i++;
 	}
 	return (0);
-}
-
-int	ft_min(t_list *head)
-{
-	int	i;
-
-	i = head->content;
-	while (head)
-	{
-		if (i > head->content)
-			i = head->content;
-		head = head->next;
-	}
-	return (i);
-}
-
-int	ft_max(t_list *head)
-{
-	int	i;
-
-	i = head->content;
-	while (head)
-	{
-		if (i < head->content)
-			i = head->content;
-		head = head->next;
-	}
-	return (i);
-}
-
-void	sort_three(t_list **head)
-{
-	if (ft_min(*head) == (*head)->content)
-	{
-		reverse_rotate(head, 'a');
-		swap(head, 'a');
-	}
-	else if (ft_max(*head) == (*head)->content)
-	{
-		rotate(head, 'a');
-		if (!is_sorted(head))
-			swap(head, 'a');
-	}
-	else if (find_index(*head, ft_max(*head)) == 1)
-		reverse_rotate(head, 'a');
-	else
-		swap(head, 'a');
 }
 
 void	b_to_a_content(t_list **a, t_list **b)
@@ -110,38 +61,6 @@ void	b_to_a_content(t_list **a, t_list **b)
 	}
 }
 
-void	sort_four_to_five(t_list **a, t_list **b)
-{
-	while (ft_lstsize(*a) > 3)
-		push(a, b, 'b');
-	while (!is_sorted(a))
-		sort_three(a);
-	while (*b)
-		b_to_a_content(a, b);
-}
-
-void sort_little_stack(t_list **a, t_list **b)
-{
-	if (ft_lstsize(*a) == 2)
-		swap(a, 'a');
-	else if (ft_lstsize(*a) == 3)
-		sort_three(a);
-	else if (ft_lstsize(*a) >= 4)
-		sort_four_to_five(a, b);
-}
-
-void	algorithm(t_list **a, t_list **b)
-{
-	fill_index(*a);
-	if (ft_lstsize(*a) <= 5)
-		sort_little_stack(a, b);
-	else
-	{
-		apply_butterfly(a, b);
-		ft_lstclear(a);
-	}
-}
-
 int	only_null(t_list *a)
 {
 	if (ft_lstsize(a) > 1)
@@ -157,13 +76,7 @@ int	only_null(t_list *a)
 	return (0);
 }
 
-void    print_step(t_list *head, char *str)
-{
-	ft_printf("%s\n", str);
-	printlist(head);
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -188,8 +101,4 @@ int main(int argc, char **argv)
 	else
 		algorithm(&stack_a, &stack_b);
 	return (0);
-	// print_step(*stack_a, "Result : ");
-	// if (is_sorted(stack_a))
-	// 	// ft_printf("\nSORTED\n\n");
 }
-

@@ -6,19 +6,16 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 16:35:44 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 17:54:24 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "pushswap.h"
-#include "libft/libft.h"
-#include <stdlib.h>
 
 int	digit_or_space(char **str, int argc)
 {
 	int	index;
-	int i;
+	int	i;
 
 	(void)argc;
 	index = 1;
@@ -27,11 +24,13 @@ int	digit_or_space(char **str, int argc)
 	while (str[index])
 	{
 		i = 0;
-		if(str[index][i] == '\0')
+		if (str[index][i] == '\0')
 			return (1);
 		while (str[index][i])
 		{
-			if (!(str[index][i] >= '0' && str[index][i] <= '9') && str[index][i] != ' ' && str[index][i] != '+' && str[index][i] != '-')
+			if (!(str[index][i] >= '0' && str[index][i] <= '9')
+				&& str[index][i] != ' ' && str[index][i] != '+'
+				&& str[index][i] != '-')
 				return (1);
 			i++;
 		}
@@ -62,7 +61,7 @@ int	is_duplicated(t_list **head)
 {
 	t_list	*number;
 	t_list	*current;
-	
+
 	number = *head;
 	while (number != NULL)
 	{
@@ -98,9 +97,11 @@ int	valid_sign(char *str)
 // error if : isalphabet, > INT_max/INT_min, already_sort, double number)
 int	parse(int argc, char **argv, t_list **heada)
 {
-	int	in_stack = 0;
-	int error = 0;
-	
+	int	in_stack;
+	int	error;
+
+	in_stack = 0;
+	error = 0;
 	error = digit_or_space(argv, argc);
 	if (!argv || error == 1)
 		return (1);
@@ -112,4 +113,3 @@ int	parse(int argc, char **argv, t_list **heada)
 	}
 	return (0);
 }
-

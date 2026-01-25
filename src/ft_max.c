@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 18:28:19 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:06:32 by pswirgie         ###   ########.fr       */
+/*   Created: 2026/01/25 17:58:46 by pswirgie          #+#    #+#             */
+/*   Updated: 2026/01/25 17:59:10 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	swap(t_list **head, char c)
+int	ft_min(t_list *head)
 {
-	t_list	*tmp;
+	int	i;
 
-	if (!*head || !((*head)->next))
-		return ;
-	tmp = *head;
-	*head = (*head)->next;
-	tmp->next = (*head)->next;
-	(*head)->next = tmp;
-	if (c == 'a')
-		ft_printf("%s", "sa\n");
-	if (c == 'b')
-		ft_printf("%s", "sb\n");
-	return ;
+	i = head->content;
+	while (head)
+	{
+		if (i > head->content)
+			i = head->content;
+		head = head->next;
+	}
+	return (i);
 }
 
-void	swapab(t_list **heada, t_list **headb)
+int	ft_max(t_list *head)
 {
-	swap(heada, 'c');
-	swap(headb, 'c');
-	ft_printf("%s", "ss\n");
+	int	i;
+
+	i = head->content;
+	while (head)
+	{
+		if (i < head->content)
+			i = head->content;
+		head = head->next;
+	}
+	return (i);
 }

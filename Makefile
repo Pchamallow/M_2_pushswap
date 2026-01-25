@@ -6,7 +6,7 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/24 00:00:21 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/25 18:08:09 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ BUILD_DIR = .push_swap
 
 # Includes 🏗️
 INCLUDES = -Iincludes \
-           -Iincludes/libft/ \
-           -Iincludes/ft_printf/
+		   -Iincludes/libft/ \
+		   -Iincludes/ft_printf/
 
 NAME = push_swap
 
@@ -37,14 +37,18 @@ PRI = includes/ft_printf/libftprintf.a
 
 # All SRC 📂
 SRCS = src/pushswap.c\
-       src/tester.c\
-       src/parse.c\
-       src/swap.c\
-       src/butterfly.c\
-       src/number_to_stack.c\
-       src/rotate.c\
-       src/reverse_rotate.c
-# 	   ft_fillstka.c\
+		src/algorithm.c\
+		src/push.c\
+		src/fill_index.c\
+		src/ft_max.c\
+		src/create_stack_a.c\
+		src/is_int_minmax.c\
+		src/parse.c\
+		src/swap.c\
+		src/apply_butterfly.c\
+		src/number_to_stack.c\
+		src/rotate.c\
+		src/reverse_rotate.c\
 
 OBJS = $(SRCS:src/%.c=$(BUILD_DIR)/%.o)
 
