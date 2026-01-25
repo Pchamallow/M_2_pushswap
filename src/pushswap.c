@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:35:30 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 15:48:47 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,31 +176,31 @@ void    print_step(t_list *head, char *str)
 
 int main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-	a = NULL;
-	b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argv[1] == NULL)
 		return (0);
 	if (is_number(argv[1]) == 1 || ft_atol(argv[1]) > INT_MAX
-		|| ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &a) == 1
-		|| only_null(a) == 1)
+		|| ft_atol(argv[1]) < INT_MIN || parse(argc, argv, &stack_a) == 1
+		|| only_null(stack_a) == 1)
 	{
-		ft_lstclear(&a);
+		ft_lstclear(&stack_a);
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (ft_lstsize(a) == 1 || is_sorted(&a) == 1)
+	if (ft_lstsize(stack_a) == 1 || is_sorted(&stack_a) == 1)
 	{
-		ft_lstclear(&a);
+		ft_lstclear(&stack_a);
 		return (0);
 	}
 	else
-		algorithm(&a, &b);
+		algorithm(&stack_a, &stack_b);
 	return (0);
-	// print_step(*a, "Result : ");
-	// if (is_sorted(a))
+	// print_step(*stack_a, "Result : ");
+	// if (is_sorted(stack_a))
 	// 	// ft_printf("\nSORTED\n\n");
 }
 

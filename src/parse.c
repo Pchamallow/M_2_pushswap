@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 21:11:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:30:28 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 #include "pushswap.h"
 #include "libft/libft.h"
 #include <stdlib.h>
-
-void	printerror(void)
-{
-	write(2, "Error\n", 6);
-}
 
 int	digit_or_space(char **str, int argc)
 {
@@ -97,7 +92,7 @@ int	is_duplicated(t_list **head)
 	return (0);
 }
 
-/*sign = before: not a digit  after: a digit */
+/*Before sign : not a digit, after: is a digit */
 int	valid_sign(char *str)
 {
 	int	i;
@@ -114,7 +109,7 @@ int	valid_sign(char *str)
 }
 
 /************** PARSING ********************/
-// error if : isalphabet, INT_max/INT_min, already_sort, double number)
+// error if : isalphabet, > INT_max/INT_min, already_sort, double number)
 int	parse(int argc, char **argv, t_list **heada)
 {
 	int	in_stack = 0;
