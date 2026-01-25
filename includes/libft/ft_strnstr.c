@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pswirgie <pswirgie@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:03:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2025/11/09 17:20:30 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:35:06 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
 #include <stddef.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -20,8 +20,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!little)
-		return ((char *)big);
 	if (!big)
 		return (NULL);
 	src = (char *)big;

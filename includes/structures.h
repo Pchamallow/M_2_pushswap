@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 22:31:34 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:57:12 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:38:21 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 typedef struct s_list
 {
-    int				content;
-    int				index;
-    struct s_list	*next;
+	int				content;
+	int				index;
+	struct s_list	*next;
 }					t_list;
 
 #endif
