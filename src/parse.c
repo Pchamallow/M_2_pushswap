@@ -6,11 +6,11 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 16:30:28 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:35:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
+#include "ft_printf.h"
 #include "pushswap.h"
 #include "libft/libft.h"
 #include <stdlib.h>
@@ -38,20 +38,6 @@ int	digit_or_space(char **str, int argc)
 		index++;
 	}
 	return (0);
-}
-
-void	clearlist(t_list **head)
-{
-    t_list *current = *head;
-    t_list *next;
-    
-    while (current)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-    *head = NULL;
 }
 
 int	is_sorted(t_list **head)

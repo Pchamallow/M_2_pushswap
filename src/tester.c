@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:31:32 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 22:35:24 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:35:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ void	push(t_list **source, t_list **target, char c)
 		ft_printf("%s\n", "pa");
 	if (c == 'b')
 		ft_printf("%s\n", "pb");
+}
+
+void	clearlist(t_list **head)
+{
+    t_list *current = *head;
+    t_list *next;
+    
+    while (current)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *head = NULL;
 }
 
 int	createstacka(t_list **head, long number)

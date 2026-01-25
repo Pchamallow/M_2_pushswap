@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/23 23:04:12 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:33:26 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@
 /***********************************************************************/
 /*                         PARSING                                     */
 /***********************************************************************/
-void	ft_pushpa(t_list **stacka, t_list **stackb);
 int		lengthlist(char **argv);
 int		strargs(char **argv);
 int     createstacka(t_list **head, long number);
-int     ft_createstackb(t_list **head);
-void	printlist(t_list *head);
 void	tester(t_list **heada, t_list **headb);
 void    printerror(void);
 int     digit_or_space(char **str, int argc);

@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 15:48:47 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 16:34:13 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,17 +155,6 @@ int	only_null(t_list *a)
 		return (1);
 	}
 	return (0);
-}
-
-void	printlist(t_list *head)
-{
-	t_list	*current = head;
-
-	while (current != NULL)
-	{
-		ft_printf("%d\n", current->content);
-		current = current->next;
-	}
 }
 
 void    print_step(t_list *head, char *str)
