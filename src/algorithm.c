@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 17:55:53 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:59:17 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:45:31 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,23 @@ void	sort_little_stack(t_list **a, t_list **b)
 		sort_four_to_five(a, b);
 }
 
-void	sort_three(t_list **head)
+void	sort_three(t_list **a)
 {
-	if (ft_min(*head) == (*head)->content)
+	if (ft_min(*a) == (*a)->content)
 	{
-		reverse_rotate(head, 'a');
-		swap(head, 'a');
+		reverse_rotate(a, 'a');
+		swap(a, 'a');
 	}
-	else if (ft_max(*head) == (*head)->content)
+	else if (ft_max(*a) == (*a)->content)
 	{
-		rotate(head, 'a');
-		if (!is_sorted(head))
-			swap(head, 'a');
+		rotate(a, 'a');
+		if (!is_sorted(a))
+			swap(a, 'a');
 	}
-	else if (find_index(*head, ft_max(*head)) == 1)
-		reverse_rotate(head, 'a');
+	else if (find_index(*a, ft_max(*a)) == 1)
+		reverse_rotate(a, 'a');
 	else
-		swap(head, 'a');
+		swap(a, 'a');
 }
 
 void	sort_four_to_five(t_list **a, t_list **b)

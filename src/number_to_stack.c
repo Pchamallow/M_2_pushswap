@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:47:15 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:51:21 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:47:08 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_empty(char *str)
 	return (1);
 }
 
-char	*fill_stacka(char *str, int i, t_list **head)
+char	*fill_stacka(char *str, int i, t_list **a)
 {
 	int		start;
 	int		end;
@@ -52,7 +52,7 @@ char	*fill_stacka(char *str, int i, t_list **head)
 		numstr = ft_substr(str, start, (end - start));
 		if (is_int_minmax(numstr) == 1)
 			return (NULL);
-		create_stack_a(head, ft_atol(numstr));
+		create_stack_a(a, ft_atol(numstr));
 		return (numstr);
 	}
 	else

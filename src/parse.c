@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:54:24 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:44:28 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	valid_sign(char *str)
 
 /************** PARSING ********************/
 // error if : isalphabet, > INT_max/INT_min, already_sort, double number)
-int	parse(int argc, char **argv, t_list **heada)
+int	parse(int argc, char **argv, t_list **a)
 {
 	int	in_stack;
 	int	error;
@@ -105,10 +105,10 @@ int	parse(int argc, char **argv, t_list **heada)
 	error = digit_or_space(argv, argc);
 	if (!argv || error == 1)
 		return (1);
-	in_stack = number_to_stack(argc, argv, heada);
-	if (in_stack == 1 || is_duplicated(heada) == 1)
+	in_stack = number_to_stack(argc, argv, a);
+	if (in_stack == 1 || is_duplicated(a) == 1)
 	{
-		ft_lstclear(heada);
+		ft_lstclear(a);
 		return (1);
 	}
 	return (0);

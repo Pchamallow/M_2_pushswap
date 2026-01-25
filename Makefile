@@ -6,13 +6,13 @@
 #    By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 18:40:53 by pswirgie          #+#    #+#              #
-#    Updated: 2026/01/25 18:08:09 by pswirgie         ###   ########.fr        #
+#    Updated: 2026/01/25 21:50:37 by pswirgie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CCC = cc
 AR = ar rcs
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 DATE = $(shell date +"%y_%m_%d_%H-%M-%S")
 BUILD_DIR = .push_swap
 
@@ -44,11 +44,9 @@ SRCS = src/pushswap.c\
 		src/create_stack_a.c\
 		src/is_int_minmax.c\
 		src/parse.c\
-		src/swap.c\
 		src/apply_butterfly.c\
 		src/number_to_stack.c\
 		src/rotate.c\
-		src/reverse_rotate.c\
 
 OBJS = $(SRCS:src/%.c=$(BUILD_DIR)/%.o)
 

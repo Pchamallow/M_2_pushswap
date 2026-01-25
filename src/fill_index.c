@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:06:00 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 18:06:57 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/25 21:46:35 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ int	find_index(t_list *head, int nbr)
 	return (-1);
 }
 
-void	put_index(t_list *stack)
+void	put_index(t_list *head)
 {
 	t_list	*tmp;
 
-	tmp = stack;
+	tmp = head;
 	while (tmp)
 	{
-		tmp->index = find_index(stack, tmp->content);
+		tmp->index = find_index(head, tmp->content);
 		tmp = tmp->next;
 	}
 }
