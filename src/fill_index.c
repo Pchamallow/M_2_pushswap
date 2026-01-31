@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 18:06:00 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/28 16:46:01 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:34:17 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	find_index(t_list *head, int nbr)
 	i = 0;
 	while (head)
 	{
-		if (nbr == head->index)
+		if (nbr == head->content)
 			return (i);
 		i++;
 		head = head->next;

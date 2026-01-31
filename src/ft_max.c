@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 17:58:46 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:59:10 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/31 17:23:44 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_max(t_list *head)
 	int	i;
 
 	i = head->content;
-	while (head)
+	while (head != NULL)
 	{
 		if (i < head->content)
 			i = head->content;

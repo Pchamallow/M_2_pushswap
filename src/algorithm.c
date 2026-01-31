@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 17:55:53 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 21:45:31 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/31 18:11:11 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,28 @@ void	sort_three(t_list **a)
 		swap(a, 'a');
 }
 
+void	rotate_min_a(t_list **a)
+{
+	int	index_min;
+
+	index_min = find_index(*a, ft_min(*a));
+	if (index_min <= ft_lstsize(*a) / 2)
+	{
+		while (index_min--)
+			rotate(a, 'a');
+	}
+	else
+	{
+		index_min = index_min - (ft_lstsize(*a) / 2);
+		while (index_min--)
+			reverse_rotate(a, 'a');
+		if ((*a)->content == ft_max(*a))
+			rotate(a, 'a');
+		if (ft_lstlast(*a)->content == ft_min(*a))
+			reverse_rotate(a, 'a');
+	}
+}
+
 void	sort_four_to_five(t_list **a, t_list **b)
 {
 	while (ft_lstsize(*a) > 3)
@@ -49,6 +71,7 @@ void	sort_four_to_five(t_list **a, t_list **b)
 		sort_three(a);
 	while (*b)
 		b_to_a_content(a, b);
+	rotate_min_a(a);
 }
 
 void	algorithm(t_list **a, t_list **b)

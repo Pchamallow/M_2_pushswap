@@ -1,0 +1,9 @@
+
+theme omyzsh bien lisble : af-magic
+
+
+display insert
+display size
+display (*a)->content 
+display (*b)->content 
+

@@ -6,16 +6,14 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 21:38:01 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:48:19 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include "structures.h"
 # include "libft.h"
-# include "ft_printf.h"
 # include "unistd.h"
 # include <stdlib.h>
 
@@ -57,6 +55,8 @@ int		max_index(t_list *b);
 void	sort_three(t_list **head);
 void	sort_little_stack(t_list **a, t_list **b);
 void	sort_four_to_five(t_list **a, t_list **b);
+void	rotate_min_a(t_list **a);
+int		index_insert(t_list *a, int nbr);
 int		ft_min(t_list *head);
 int		ft_max(t_list *head);
 int		find_index(t_list *head_b, int nbr);

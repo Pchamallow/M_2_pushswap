@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:13:02 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 17:59:32 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:31:33 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,6 @@ int	is_number(char *str)
 		i++;
 	}
 	return (0);
-}
-
-void	b_to_a_content(t_list **a, t_list **b)
-{
-	int	count;
-
-	count = 0;
-	if (ft_max(*a) < (*b)->content)
-	{
-		push(b, a, 'a');
-		rotate(a, 'a');
-		return ;
-	}
-	if (ft_min(*a) > (*b)->content)
-	{
-		push(b, a, 'a');
-		return ;
-	}
-	while ((*b)->content > (*a)->content)
-	{
-		rotate(a, 'a');
-		count++;
-	}
-	push(b, a, 'a');
-	while (count > 0)
-	{
-		reverse_rotate(a, 'a');
-		count--;
-	}
 }
 
 int	only_null(t_list *a)
