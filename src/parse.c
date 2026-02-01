@@ -6,18 +6,17 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 01:35:39 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/25 21:44:28 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/02/01 14:25:15 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	digit_or_space(char **str, int argc)
+int	digit_or_space(char **str)
 {
 	int	index;
 	int	i;
 
-	(void)argc;
 	index = 1;
 	if (!str)
 		return (1);
@@ -102,7 +101,7 @@ int	parse(int argc, char **argv, t_list **a)
 
 	in_stack = 0;
 	error = 0;
-	error = digit_or_space(argv, argc);
+	error = digit_or_space(argv);
 	if (!argv || error == 1)
 		return (1);
 	in_stack = number_to_stack(argc, argv, a);

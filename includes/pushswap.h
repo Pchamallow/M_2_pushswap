@@ -6,7 +6,7 @@
 /*   By: pswirgie <pswirgie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:01:26 by pswirgie          #+#    #+#             */
-/*   Updated: 2026/01/31 19:48:19 by pswirgie         ###   ########.fr       */
+/*   Updated: 2026/02/01 14:24:57 by pswirgie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 int		lengthlist(char **argv);
 int		strargs(char **argv);
 int		create_stack_a(t_list **head, long number);
-int		digit_or_space(char **str, int argc);
+int		digit_or_space(char **str);
 int		number_to_stack(int argc, char **argv, t_list **head);
 int		extract_numbers(char *str, t_list **head);
 int		end_number(char *str, int i);
